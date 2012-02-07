@@ -10,16 +10,53 @@
 
 #import <Foundation/Foundation.h>
 
-#define SMKLogError( ... ) SMKLogger( __FILE__, __LINE__, __VA_ARGS__ )
-#define SMKLogInfo NSLog
-#define SMKLogWarn NSLog
-#define SMKLogWarnv NSLogv
-#define SMKLogDebug( ... ) SMKLogger( __FILE__, __LINE__, __VA_ARGS__ )
+@interface SMKLogger : NSObject
+enum LogLevel {
+    SMK_LOG_DEBUG,
+    SMK_LOG_INFO,
+    SMK_LOG_WARN,
+    SMK_LOG_ERROR
+};
 
-void SMKLogger( const char * srcFile, int srcLine, NSString * fmtString, ... );
++(NSString *)userDefaultDateFormatKey;
 
-#define TEST_DEF @"test_define"
+-(void)logIt:(enum LogLevel)lvl 
+         src:(const char *)srcFn 
+        line:(int)srcLine
+         fmt:(NSString *)msgFmt
+   arguments:(va_list)args NS_FORMAT_FUNCTION(4,0);
 
-@interface SMKLoggerClass : NSObject
+-(void)logIt:(enum LogLevel)lvl 
+         src:(const char *)srcFn 
+        line:(int)srcLine
+         fmt:(NSString *)msgFmt, ... NS_FORMAT_FUNCTION(4,5);
+
++(void)logIt:(enum LogLevel)lvl 
+         src:(const char *)srcFn 
+        line:(int)srcLine
+         fmt:(NSString *)msgFmt, ... NS_FORMAT_FUNCTION(4,5);
 
 @end
+
+#define SMKLogDebug(fmt_,...) [SMKLogger logIt:SMK_LOG_DEBUG         \
+                                           src:__FILE__              \
+                                          line:__LINE__              \
+                                           fmt:fmt_, ##__VA_ARGS__ ] \
+
+#define SMKLogInfo(fmt_,...) [SMKLogger logIt:SMK_LOG_INFO         \
+src:__FILE__              \
+line:__LINE__              \
+fmt:fmt_, ##__VA_ARGS__ ] \
+
+#define SMKLogWarn(fmt_,...) [SMKLogger logIt:SMK_LOG_WARN         \
+src:__FILE__              \
+line:__LINE__              \
+fmt:fmt_, ##__VA_ARGS__ ] \
+
+#define SMKLogError(fmt_,...) [SMKLogger logIt:SMK_LOG_ERROR         \
+src:__FILE__              \
+line:__LINE__              \
+fmt:fmt_, ##__VA_ARGS__ ] \
+
+
+
