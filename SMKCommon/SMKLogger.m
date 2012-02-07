@@ -1,10 +1,26 @@
-//
-//  SMKLogger.m
-//  Dig-It
-//
-//  Created by Paul Houghton on 1/29/12.
-//  Copyright (c) 2012 Secure Media Keepers. All rights reserved.
-//
+/**
+ File:		SMKLogger.m
+ Project:	SMKCocoaCommon 
+ Desc:
+ Notes:
+ 
+ Author(s):   Paul Houghton <Paul.Houghton@SecureMediaKeepers.com>
+ Created:     01/29/2012 04:36
+ Copyright:   Copyright (c) 2012 Secure Media Keepers
+              www.SecureMediaKeepers.com
+              All rights reserved.
+ 
+ Revision History: (See ChangeLog for details)
+ 
+   $Author$
+   $Date$
+   $Revision$
+   $Name$
+   $State$
+ 
+ $Id$
+ 
+ **/
 
 #import "SMKLogger.h"
 
@@ -13,23 +29,18 @@ static NSString * SMKLogLevelStrings[] = { @"DBG ",
     @"WRN ",
     @"ERR " };
 
-/*
- void SMKLogger( const char * srcFile, int srcLine, NSString * fmtString, ... )
-{
-    va_list arguments;
-    va_start(arguments, fmtString);
-    NSString *logString = [[NSString alloc] initWithFormat:fmtString arguments:arguments];
-    va_end(arguments);
-
-    NSString * srcFn = [[NSString stringWithUTF8String:srcFile]
-                        lastPathComponent];
-    
-    NSLog(@"%@:%d %@",srcFn, srcLine, logString);
-}
-*/
 
 @implementation SMKLogger
+@synthesize outLogLevel;
 
+-(id)init
+{
+    self = [super init];
+    if( self ) {
+        outLogLevel = SMK_LOG_DEBUG;
+    }
+    return self;
+}
 
 -(void)mtLogIt:(NSString *)msg
 {
@@ -46,6 +57,9 @@ static NSString * SMKLogLevelStrings[] = { @"DBG ",
          fmt:(NSString *)msgFmt
    arguments:(va_list)args
 {
+    if( lvl < outLogLevel ) 
+        return;
+    
     NSMutableString * logEntry = [[NSMutableString alloc]init];
 
     BOOL lgDate = true;
@@ -69,9 +83,8 @@ static NSString * SMKLogLevelStrings[] = { @"DBG ",
     } // and that was just for the date :)
     
     BOOL lgLevel = TRUE;
-    enum LogLevel curLvl = SMK_LOG_DEBUG;
     
-    if( lgLevel && lvl >= curLvl ) {
+    if( lgLevel ) {
         [logEntry appendString:
          SMKLogLevelStrings[ lvl <= SMK_LOG_ERROR 
                             ? lvl : SMK_LOG_ERROR ] ];
@@ -103,6 +116,9 @@ static NSString * SMKLogLevelStrings[] = { @"DBG ",
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ...
 {
+    if( lvl < outLogLevel ) 
+        return;
+    
     va_list(args);
     va_start(args, msgFmt);
     [self logIt:lvl src:srcFn line:srcLine fmt:msgFmt arguments:args];
@@ -116,13 +132,30 @@ static NSString * SMKLogLevelStrings[] = { @"DBG ",
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ...
 {
+    SMKLogger * logger = [[SMKLogger alloc]init];
+    if( lvl < [logger outLogLevel] ) 
+        return;
+    
     va_list(args);
     va_start(args, msgFmt);
     
-    SMKLogger * logger = [[SMKLogger alloc]init];
+    // I'll probaqbly end up with a static 'default' logger
     
     [logger logIt:lvl src:srcFn line:srcLine fmt:msgFmt arguments:args];
     va_end(args);
+}
+
++(void)LogException:(NSException *)except src:(const char *)srcFn line:(int)srcLine
+{
+    SMKLogger * logger = [[SMKLogger alloc]init];
+    
+    NSMutableString * excMsg = [[NSMutableString alloc] init];
+    [excMsg appendFormat:@"Exception: %@: %@\n",[except name], [except reason]];
+    NSArray * backTrace = [except callStackSymbols];
+    for( NSString * symName in backTrace ) {
+        [excMsg appendFormat:@"    %@\n",symName];
+    }
+    [logger logIt:SMK_LOG_ERROR src:srcFn line:srcLine fmt:@"%@",excMsg];
 }
 
 +(NSString *)userDefaultDateFormatKey

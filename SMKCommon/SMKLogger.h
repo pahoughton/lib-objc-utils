@@ -1,12 +1,38 @@
-//
-//  SMKLogger.h
-//  Dig-It
-//
-//  Created by Paul Houghton on 1/29/12.
-//  Copyright (c) 2012 Secure Media Keepers. All rights reserved.
-//
-
-// FIXME - change SMK Log Error to support raising exceptions. ( a stacktrace would be nice );
+/**
+ File:		SMKLogger.m
+ Project:	SMKCocoaCommon 
+ Desc:
+ 
+    Log messages to your chosen destination
+    
+    Default Fmt: 120228 142302 ERR Class.m:37 Just a bad thing msg
+ 
+    SMKLogError( @"Just a %@ thing happend",@"Terrible" );
+    SMKLogWarn( @"Just a %@ thing happend",@"ucky" );
+    SMKLogInfo( @"Just a %@ thing happend",@"normal" );
+    SMKLogDebug( @"Just a %@ thing happend",@"silly" );
+ 
+    SMKLogExcept( NSException * oops );
+ 
+ Notes:
+ 
+ Author(s):   Paul Houghton <Paul.Houghton@SecureMediaKeepers.com>
+ Created:     01/29/2012 04:36
+ Copyright:   Copyright (c) 2012 Secure Media Keepers
+              www.SecureMediaKeepers.com
+              All rights reserved.
+ 
+ Revision History: (See ChangeLog for details)
+ 
+   $Author$
+   $Date$
+   $Revision$
+   $Name$
+   $State$
+ 
+ $Id$
+ 
+**/
 
 #import <Foundation/Foundation.h>
 
@@ -17,6 +43,8 @@ enum LogLevel {
     SMK_LOG_WARN,
     SMK_LOG_ERROR
 };
+
+@property (assign) enum LogLevel outLogLevel;
 
 +(NSString *)userDefaultDateFormatKey;
 
@@ -35,6 +63,8 @@ enum LogLevel {
          src:(const char *)srcFn 
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ... NS_FORMAT_FUNCTION(4,5);
+
++(void)LogException:(NSException *)except src:(const char *)srcFn line:(int)srcLine;
 
 @end
 
@@ -58,5 +88,6 @@ src:__FILE__              \
 line:__LINE__              \
 fmt:fmt_, ##__VA_ARGS__ ] \
 
+#define SMKLogExcept( _exc_ ) [SMKLogger logException:_exc_ src:__FILE__ line:__LINE__]
 
 
