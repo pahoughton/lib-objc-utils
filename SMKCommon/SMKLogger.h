@@ -41,12 +41,33 @@ enum LogLevel {
     SMK_LOG_DEBUG,
     SMK_LOG_INFO,
     SMK_LOG_WARN,
-    SMK_LOG_ERROR
+    SMK_LOG_ERROR,
+    SMK_LOG_NONE
 };
 
 @property (assign) enum LogLevel outLogLevel;
+@property (retain,readonly) NSString * logFileFn;
+@property (assign) NSUInteger maxLogSize;
+@property (retain) NSString * dateFormat;
+@property (assign) BOOL logDoOutputDate;
+@property (assign) BOOL logDoOutputSrcLine;
+@property (assign) BOOL logDoOutputLevel;
+@property (retain) NSFileHandle * logFile;
+@property (retain) SMKLogger * teeLogger;
+@property (assign) BOOL logIsFile;
+@property (assign) NSFileManager * fm;
 
++(SMKLogger *)appLogger;
 +(NSString *)userDefaultDateFormatKey;
++(NSString *)userDefaultOutLogLevel;
++(NSString *)userDefaultLogFile;
++(NSString *)userDefaultMaxLogSize;
+
+-(id)initToStderr;
+-(id)initToStdout;
+-(id)initWithHandle:(NSFileHandle *)handle;
+-(id)initWithPath:(NSString *)path;
+
 
 -(void)logIt:(enum LogLevel)lvl 
          src:(const char *)srcFn 
