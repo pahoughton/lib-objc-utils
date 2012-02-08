@@ -85,7 +85,7 @@ enum LogLevel {
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ... NS_FORMAT_FUNCTION(4,5);
 
-+(void)LogException:(NSException *)except src:(const char *)srcFn line:(int)srcLine;
++(void)logException:(NSException *)except src:(const char *)srcFn line:(int)srcLine;
 
 @end
 

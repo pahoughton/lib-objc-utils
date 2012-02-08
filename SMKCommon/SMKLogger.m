@@ -307,7 +307,7 @@ static NSUInteger  dfltMaxSize = (50 * 1024); // i.e 50K
     va_end(args);
 }
 
-+(void)LogException:(NSException *)except src:(const char *)srcFn line:(int)srcLine
++(void)logException:(NSException *)except src:(const char *)srcFn line:(int)srcLine
 {
     SMKLogger * logger = [SMKLogger appLogger];
     
@@ -326,6 +326,7 @@ static NSUInteger  dfltMaxSize = (50 * 1024); // i.e 50K
         [logFile closeFile];
     }
 }
+
 +(SMKLogger *)appLogger
 {
     if( dfltAppLogger == nil ) {
