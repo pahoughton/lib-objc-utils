@@ -91,7 +91,8 @@
             if( secRet != errSecSuccess
                || (secRet = SecKeychainItemDelete(itemRef)) != errSecSuccess ) {
                 CFStringRef ret = SecCopyErrorMessageString( secRet, NULL );
-                SMKAlert(@"sec find error %@", ret );
+                // Not found is NO big
+                // SMKAlert(@"sec find error %@", ret );
                 CFRelease(ret);
             }
             if( passDest != NULL ) {

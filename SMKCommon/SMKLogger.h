@@ -1,5 +1,5 @@
 /**
- File:		SMKLogger.m
+ File:		SMKLogger.h
  Project:	SMKCocoaCommon 
  Desc:
  
@@ -48,7 +48,7 @@ enum LogLevel {
 @property (assign) enum LogLevel outLogLevel;
 @property (retain,readonly) NSString * logFileFn;
 @property (assign) NSUInteger maxLogSize;
-@property (retain) NSString * dateFormat;
+@property (retain) NSDateFormatter * dateFormater;
 @property (assign) BOOL logDoOutputDate;
 @property (assign) BOOL logDoOutputSrcLine;
 @property (assign) BOOL logDoOutputLevel;
@@ -56,6 +56,7 @@ enum LogLevel {
 @property (retain) SMKLogger * teeLogger;
 @property (assign) BOOL logIsFile;
 @property (assign) NSFileManager * fm;
+@property (retain) NSLock * logLock;
 
 +(SMKLogger *)appLogger;
 +(NSString *)userDefaultDateFormatKey;
@@ -79,6 +80,8 @@ enum LogLevel {
          src:(const char *)srcFn 
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ... NS_FORMAT_FUNCTION(4,5);
+
+-(void)mtLogIt:(NSString *)msg;
 
 +(void)logIt:(enum LogLevel)lvl 
          src:(const char *)srcFn 
