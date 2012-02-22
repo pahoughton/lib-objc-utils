@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DADEA99914F515ED00AF5176 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99814F515ED00AF5176 /* Cocoa.framework */; };
+		DADEA9A314F515ED00AF5176 /* SMKCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DADEA9A214F515ED00AF5176 /* SMKCommon.m */; };
+		DADEA9AB14F515EE00AF5176 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */; };
+		DADEA9AC14F515EE00AF5176 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99814F515ED00AF5176 /* Cocoa.framework */; };
+		DADEA9AF14F515EE00AF5176 /* libSMKCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99514F515ED00AF5176 /* libSMKCommon.a */; };
+		DADEA9B514F515EE00AF5176 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADEA9B314F515EE00AF5176 /* InfoPlist.strings */; };
+		DADEA9B814F515EE00AF5176 /* SMKCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DADEA9B714F515EE00AF5176 /* SMKCommonTests.m */; };
+		DADEA9C214F516FE00AF5176 /* SMKCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEA9A114F515ED00AF5176 /* SMKCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DADEA9C514F5172F00AF5176 /* Incremental.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEA9C314F5172F00AF5176 /* Incremental.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DADEA9C614F5172F00AF5176 /* Incremental.m in Sources */ = {isa = PBXBuildFile; fileRef = DADEA9C414F5172F00AF5176 /* Incremental.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DADEA9AD14F515EE00AF5176 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DADEA98C14F515ED00AF5176 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DADEA99414F515ED00AF5176;
+			remoteInfo = SMKCommon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DADEA99514F515ED00AF5176 /* libSMKCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSMKCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADEA99814F515ED00AF5176 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		DADEA99B14F515ED00AF5176 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		DADEA99C14F515ED00AF5176 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DADEA99D14F515ED00AF5176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DADEA9A014F515ED00AF5176 /* SMKCommon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMKCommon-Prefix.pch"; sourceTree = "<group>"; };
+		DADEA9A114F515ED00AF5176 /* SMKCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMKCommon.h; path = SMKCommon/SMKCommon.h; sourceTree = "<group>"; };
+		DADEA9A214F515ED00AF5176 /* SMKCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMKCommon.m; sourceTree = "<group>"; };
+		DADEA9A914F515EE00AF5176 /* SMKCommonTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMKCommonTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DADEA9B214F515EE00AF5176 /* SMKCommonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SMKCommonTests-Info.plist"; sourceTree = "<group>"; };
+		DADEA9B414F515EE00AF5176 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DADEA9B614F515EE00AF5176 /* SMKCommonTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMKCommonTests.h; sourceTree = "<group>"; };
+		DADEA9B714F515EE00AF5176 /* SMKCommonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMKCommonTests.m; sourceTree = "<group>"; };
+		DADEA9C314F5172F00AF5176 /* Incremental.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Incremental.h; path = SMKCommon/Incremental.h; sourceTree = "<group>"; };
+		DADEA9C414F5172F00AF5176 /* Incremental.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incremental.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DADEA99214F515ED00AF5176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADEA99914F515ED00AF5176 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADEA9A514F515EE00AF5176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADEA9AB14F515EE00AF5176 /* SenTestingKit.framework in Frameworks */,
+				DADEA9AC14F515EE00AF5176 /* Cocoa.framework in Frameworks */,
+				DADEA9AF14F515EE00AF5176 /* libSMKCommon.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DADEA98A14F515ED00AF5176 = {
+			isa = PBXGroup;
+			children = (
+				DADEA9C114F516BC00AF5176 /* Public Headers */,
+				DADEA99E14F515ED00AF5176 /* Sources */,
+				DADEA99F14F515ED00AF5176 /* Supporting Files */,
+				DADEA9B014F515EE00AF5176 /* SMKCommonTests */,
+				DADEA99714F515ED00AF5176 /* Frameworks */,
+				DADEA99614F515ED00AF5176 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DADEA99614F515ED00AF5176 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA99514F515ED00AF5176 /* libSMKCommon.a */,
+				DADEA9A914F515EE00AF5176 /* SMKCommonTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DADEA99714F515ED00AF5176 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA99814F515ED00AF5176 /* Cocoa.framework */,
+				DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */,
+				DADEA99A14F515ED00AF5176 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DADEA99A14F515ED00AF5176 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA99B14F515ED00AF5176 /* AppKit.framework */,
+				DADEA99C14F515ED00AF5176 /* CoreData.framework */,
+				DADEA99D14F515ED00AF5176 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		DADEA99E14F515ED00AF5176 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA9A214F515ED00AF5176 /* SMKCommon.m */,
+				DADEA9C414F5172F00AF5176 /* Incremental.m */,
+			);
+			name = Sources;
+			path = SMKCommon;
+			sourceTree = "<group>";
+		};
+		DADEA99F14F515ED00AF5176 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA9A014F515ED00AF5176 /* SMKCommon-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = SMKCommon;
+			sourceTree = "<group>";
+		};
+		DADEA9B014F515EE00AF5176 /* SMKCommonTests */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA9B614F515EE00AF5176 /* SMKCommonTests.h */,
+				DADEA9B714F515EE00AF5176 /* SMKCommonTests.m */,
+				DADEA9B114F515EE00AF5176 /* Supporting Files */,
+			);
+			path = SMKCommonTests;
+			sourceTree = "<group>";
+		};
+		DADEA9B114F515EE00AF5176 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA9B214F515EE00AF5176 /* SMKCommonTests-Info.plist */,
+				DADEA9B314F515EE00AF5176 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DADEA9C114F516BC00AF5176 /* Public Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DADEA9A114F515ED00AF5176 /* SMKCommon.h */,
+				DADEA9C314F5172F00AF5176 /* Incremental.h */,
+			);
+			name = "Public Headers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DADEA99314F515ED00AF5176 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADEA9C214F516FE00AF5176 /* SMKCommon.h in Headers */,
+				DADEA9C514F5172F00AF5176 /* Incremental.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DADEA99414F515ED00AF5176 /* SMKCommon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADEA9BB14F515EE00AF5176 /* Build configuration list for PBXNativeTarget "SMKCommon" */;
+			buildPhases = (
+				DADEA99114F515ED00AF5176 /* Sources */,
+				DADEA99214F515ED00AF5176 /* Frameworks */,
+				DADEA99314F515ED00AF5176 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMKCommon;
+			productName = SMKCommon;
+			productReference = DADEA99514F515ED00AF5176 /* libSMKCommon.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DADEA9A814F515EE00AF5176 /* SMKCommonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADEA9BE14F515EE00AF5176 /* Build configuration list for PBXNativeTarget "SMKCommonTests" */;
+			buildPhases = (
+				DADEA9A414F515EE00AF5176 /* Sources */,
+				DADEA9A514F515EE00AF5176 /* Frameworks */,
+				DADEA9A614F515EE00AF5176 /* Resources */,
+				DADEA9A714F515EE00AF5176 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DADEA9AE14F515EE00AF5176 /* PBXTargetDependency */,
+			);
+			name = SMKCommonTests;
+			productName = SMKCommonTests;
+			productReference = DADEA9A914F515EE00AF5176 /* SMKCommonTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DADEA98C14F515ED00AF5176 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Secure Media Keepers";
+			};
+			buildConfigurationList = DADEA98F14F515ED00AF5176 /* Build configuration list for PBXProject "SMKCommon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DADEA98A14F515ED00AF5176;
+			productRefGroup = DADEA99614F515ED00AF5176 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DADEA99414F515ED00AF5176 /* SMKCommon */,
+				DADEA9A814F515EE00AF5176 /* SMKCommonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DADEA9A614F515EE00AF5176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADEA9B514F515EE00AF5176 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DADEA9A714F515EE00AF5176 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DADEA99114F515ED00AF5176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADEA9A314F515ED00AF5176 /* SMKCommon.m in Sources */,
+				DADEA9C614F5172F00AF5176 /* Incremental.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADEA9A414F515EE00AF5176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADEA9B814F515EE00AF5176 /* SMKCommonTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DADEA9AE14F515EE00AF5176 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DADEA99414F515ED00AF5176 /* SMKCommon */;
+			targetProxy = DADEA9AD14F515EE00AF5176 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DADEA9B314F515EE00AF5176 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DADEA9B414F515EE00AF5176 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DADEA9B914F515EE00AF5176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DADEA9BA14F515EE00AF5176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DADEA9BC14F515EE00AF5176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
+				INSTALL_PATH = /Support/lib;
+				PRIVATE_HEADERS_FOLDER_PATH = /Support/include;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /Support/include;
+			};
+			name = Debug;
+		};
+		DADEA9BD14F515EE00AF5176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
+				INSTALL_PATH = /Support/lib;
+				PRIVATE_HEADERS_FOLDER_PATH = /Support/include;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /Support/include;
+			};
+			name = Release;
+		};
+		DADEA9BF14F515EE00AF5176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
+				INFOPLIST_FILE = "SMKCommonTests/SMKCommonTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DADEA9C014F515EE00AF5176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
+				INFOPLIST_FILE = "SMKCommonTests/SMKCommonTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DADEA98F14F515ED00AF5176 /* Build configuration list for PBXProject "SMKCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADEA9B914F515EE00AF5176 /* Debug */,
+				DADEA9BA14F515EE00AF5176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADEA9BB14F515EE00AF5176 /* Build configuration list for PBXNativeTarget "SMKCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADEA9BC14F515EE00AF5176 /* Debug */,
+				DADEA9BD14F515EE00AF5176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DADEA9BE14F515EE00AF5176 /* Build configuration list for PBXNativeTarget "SMKCommonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADEA9BF14F515EE00AF5176 /* Debug */,
+				DADEA9C014F515EE00AF5176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DADEA98C14F515ED00AF5176 /* Project object */;
+}
