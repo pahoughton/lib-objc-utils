@@ -7,9 +7,9 @@
 //
 
 #import "SMKLogin.h"
+#import "SMKException.h"
 #import <Security/Security.h>
-#import "SMKLogger.h"
-#import "SMKAlertWin.h"
+
 @implementation SMKLogin
 
 +(NSString *) passKey:(NSString *) item
@@ -49,18 +49,18 @@
                 tmpPass[passLen] = 0;
                 pass = [[NSString alloc] initWithUTF8String:tmpPass];
             } else {
-                SMKAlert(@"Password to long" );
+                [SMKException raise:@"SMKLogin" format:@"Password to long"];
             }
         } else {
             CFStringRef ret = SecCopyErrorMessageString( secRet, NULL );
-            SMKAlert(@"sec find error %@", ret );
+            [SMKException raise:@"SMKLogin" format:@"find error: %@",ret];
             CFRelease(ret);
         }
         if( passDest != NULL ) {
             SecKeychainItemFreeContent(NULL, passDest);
         }
     } else {
-        SMKAlert(@"user name not provided");
+        [SMKException raise:@"SMKLogin" format:@"user name required"];
     }
     return pass;
 }
@@ -124,7 +124,7 @@
         
     } else {
         CFStringRef ret = SecCopyErrorMessageString( secRet, NULL );
-        SMKAlert(@"sec add error %@", ret );
+        [SMKException raise:@"SMKLogin" format:@"Add Error: %@",ret];
         CFRelease(ret);
         return FALSE;
     }

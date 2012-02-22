@@ -1,5 +1,5 @@
 /**
-  File:		Incremental.h
+  File:		SMKException.h
   Project:	SMKCommon
   Desc:
 
@@ -8,7 +8,7 @@
   Notes:
     
   Author(s):    Paul Houghton  ___EMAIL___ <Paul.Houghton@SecureMediaKeepers.com>
-  Created:      2/22/12  5:29 AM
+  Created:      2/22/12  6:01 AM
   Copyright:    Copyright (c) 2012 Secure Media Keepers.
                 All rights reserved.
 
@@ -25,12 +25,7 @@
 **/
 #import <Foundation/Foundation.h>
 
-@interface Incremental : NSObject
-@property NSInteger value;
-@property NSInteger increment; // defaults to 1
--(id)initValue:(NSInteger)value;
--(id)initValue:(NSInteger)value incr:(NSInteger)incr;
--(NSInteger)incr;
--(NSInteger)decr;
+@interface SMKException : NSException
++(void)raise:(NSString *)name format:(NSString *)format, ...;
 
 @end

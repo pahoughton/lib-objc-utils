@@ -26,5 +26,48 @@
 #import "Incremental.h"
 
 @implementation Incremental
+@synthesize value;
+@synthesize increment;
 
+- (id)initValue:(NSInteger)val
+{
+    self = [super init];
+    if (self) {
+        [self setValue:val];
+        [self setIncrement:1];
+    }
+    return self;
+}
+- (id)initValue:(NSInteger)val incr:(NSInteger)inc 
+{
+    self = [super init];
+    if (self) {
+        [self setValue:val];
+        [self setIncrement:inc];
+    }
+    return self;
+}
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self setValue:0];
+        [self setIncrement:1];
+    }
+    return self;
+}
+-(NSInteger)incr
+{
+    value+=increment;
+    return value;
+}
+-(NSInteger)decr
+{
+    value -= increment;
+    return value;
+}
+
+-(NSString *)description
+{
+    return [[NSString alloc]initWithFormat:@"%d",value];
+}
 @end
