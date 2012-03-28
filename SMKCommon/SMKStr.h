@@ -1,11 +1,11 @@
-#ifndef _Str_hh_
-#define _Str_hh_
+#ifndef _SMKStr_h_
+#define _SMKStr_h_
 /**
-   File:        Str.hh
-   Project:	StlUtils ()
+   File:        SMKStr.hh
+   Project:	SMKCommon
    Desc:        
   
-    A 'Str' provides many methods to manipulate sequences
+    A 'SMKStr' provides many methods to manipulate sequences
     of characters (i.e. strings). It is a 'iostream' so you
     can use the '<<' and '>>' operators.
   
@@ -24,8 +24,8 @@
     
 **/
 
-#include <StlUtilsConfig.hh>
-#include <DumpInfo.hh>
+#include <SMKConfig.h>
+#include <SMKDumpInfo.h>
 #include <iostream>
 #include <iterator>
 #include <functional>
@@ -43,7 +43,7 @@ class STLUTILS_CLASS_T StrStreambuf;
 class STLUTILS_CLASS_T SubStr;
 class STLUTILS_CLASS_T RegexScan;
 
-class STLUTILS_CLASS_T Str : public iostream
+class STLUTILS_CLASS_T SMKStr : public iostream
 {
 
 public:
@@ -678,7 +678,7 @@ private:
 };
 
 #if !defined( inline )
-#include <Str.ii>
+#include <SMKStr.ii>
 #else
 #undef inline
 
@@ -1805,165 +1805,6 @@ operator >> ( istream & src, Str & dest );
 
 **/
 
-//
-// Revision Log:
-//
-// 
-// %PL%
-// 
-// $Log$
-// Revision 6.2  2011/12/30 23:57:19  paul
-// First go at Mac gcc Port
-//
-// Revision 6.1  2003/08/09 11:22:43  houghton
-// Changed to version 6
-//
-// Revision 5.11  2003/08/09 11:21:00  houghton
-// Changed ver strings.
-//
-// Revision 5.10  2003/07/19 09:17:12  houghton
-// Port to 64 bit.
-//
-// Revision 5.9  2001/08/07 23:34:24  houghton
-// *** empty log message ***
-//
-// Revision 5.8  2001/07/30 01:40:37  houghton
-// *** empty log message ***
-//
-// Revision 5.7  2001/07/29 19:56:38  houghton
-// *** empty log message ***
-//
-// Revision 5.6  2001/07/28 01:15:00  houghton
-// *** empty log message ***
-//
-// Revision 5.5  2001/07/26 19:28:59  houghton
-// *** empty log message ***
-//
-// Revision 5.4  2000/06/27 11:58:11  houghton
-// Added dump().
-//
-// Revision 5.3  2000/06/04 17:58:05  houghton
-// Updated documentation.
-//
-// Revision 5.2  2000/05/25 17:05:46  houghton
-// Port: Sun CC 5.0.
-//
-// Revision 5.1  2000/05/25 10:33:17  houghton
-// Changed Version Num to 5
-//
-// Revision 4.14  2000/04/19 10:13:32  houghton
-// Changed Range to use 'long long' vs unsigned long.
-// Changed to support -range value.
-//
-// Revision 4.13  1999/05/09 13:00:50  houghton
-// Added long long support.
-//
-// Revision 4.12  1999/05/01 12:53:36  houghton
-// Added scan( quotechars ) to support delimited files with quoted fields.
-//
-// Revision 4.11  1999/03/02 12:49:27  houghton
-// Cleanup.
-//
-// Revision 4.10  1998/10/23 13:07:05  houghton
-// Changed to support both new (Std) and old types of reverse_iterator.
-//
-// Revision 4.9  1998/10/13 16:23:48  houghton
-// Changed to use new standard include files.
-// Cleanup.
-//
-// Revision 4.8  1998/10/13 15:24:47  houghton
-// Port(AIX41): write( wchar_t *) not available.
-//
-// Revision 4.7  1998/07/20 11:26:53  houghton
-// Port(Hpux): wchar not supported.
-//
-// Revision 4.6  1998/04/02 14:18:13  houghton
-// Port(Linux): functional.h implements != operator.
-//
-// Revision 4.5  1998/03/30 14:06:32  houghton
-// Removed get( wchar ) and getline( wchar ) - not standard.
-//
-// Revision 4.4  1998/03/23 10:45:45  houghton
-// Changed to eliminate Sun5 compiler warnings.
-//
-// Revision 4.3  1998/02/17 13:50:25  houghton
-// Added stopAtNonDigit arg to to() methods.
-//
-// Revision 4.2  1997/09/19 11:21:10  houghton
-// Changed to use new portable types (STLUTILS*_T).
-//
-// Revision 4.1  1997/09/17 15:12:53  houghton
-// Changed to Version 4
-//
-// Revision 3.10  1997/09/17 11:08:45  houghton
-// Changed: renamed library to StlUtils.
-//
-// Revision 3.9  1997/09/02 13:08:28  houghton
-// Added to( Range )
-// Added to( RangeList )
-//
-// Revision 3.8  1997/08/08 13:24:25  houghton
-// Changed copy() to const.
-//
-// Revision 3.7  1997/07/18 19:29:02  houghton
-// Added fromStream.
-// Port(Sun5): had to create a default constructor for 'ScanMatch' to
-//     prevent the compiler from CRASHING.
-// Chagned: istream operator >> Str and ostream operator << Str do not
-//     need to be freinds of Str.
-//
-// Revision 3.6  1997/04/03 23:23:21  houghton
-// Changed include stddef to stddef.h
-//
-// Revision 3.5  1997/03/07 11:53:54  houghton
-// Cleanup.
-//
-// Revision 3.4  1997/03/02 13:20:24  houghton
-// Changed to use 'size_type'
-//
-// Revision 3.3  1997/01/18 17:34:21  houghton
-// Bug-Fix: Linux - had to remove (actually ifdef out) functions that can
-//     be created with functional.h.
-//
-// Revision 3.2  1996/11/20 12:12:18  houghton
-// Removed support for BinStream.
-//
-// Revision 3.1  1996/11/14 01:24:12  houghton
-// Changed to Release 3
-//
-// Revision 2.8  1996/10/11 17:43:01  houghton
-// Changed: Added new 'multiDelim' arg to scan methods. This arg
-//   specifies if multiple consecutive instances of the delimiter are
-//   ignored or create separate matches.
-//      Example: 'this,is,,a,test'
-//               mutliDelim == true:  4 fields
-//               multiDelim == false: 5 fields (the third has a 0 length).
-//
-// Revision 2.7  1996/07/04 10:28:49  houghton
-// Added to( bool ).
-//
-// Revision 2.6  1996/05/03 16:13:41  houghton
-// AIX Port cleanup.
-//
-// Revision 2.5  1996/04/27 13:08:50  houghton
-// Cleanup includes.
-//
-// Revision 2.4  1996/02/29 19:07:08  houghton
-// Added some ifndefs for GNU
-//
-// Revision 2.3  1995/12/04 11:18:27  houghton
-// Bug Fix - Can now compile with out '-DSTLUTILS_DEBUG'.
-//
-// Revision 2.2  1995/11/10  14:08:39  houghton
-// Updated documentation comments
-//
-// Revision 2.1  1995/11/10  12:41:04  houghton
-// Change to Version 2
-//
-// Revision 1.6  1995/11/05  15:28:47  houghton
-// Revised
-//
-//
 
-#endif // ! def _Str_hh_ 
+#endif // ! def _SMKStr_h_ 
 

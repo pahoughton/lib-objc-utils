@@ -106,21 +106,30 @@ static NSDateFormatter * dfltLogDateFormater = nil;
         if( udStrVal != nil ) {
             logFileFn = udStrVal;
         } else {
-            NSString *appName = [[[NSBundle mainBundle] 
-                                  localizedInfoDictionary] 
-                                 objectForKey:(NSString *)kCFBundleNameKey];
-            NSString *bundlePath = [[NSBundle mainBundle] bundlePath]; 
-            // arg test harness
+            NSString *appName;
+            
+            appName = [[[NSBundle mainBundle] localizedInfoDictionary] 
+                       objectForKey:@"CFBundleName"];
             if( appName == nil ) {
-                if( [dfls objectForKey:@"SenTest"] ) {
-                    logFileFn = [NSString stringWithFormat:@"%@/SMKLogger.log",NSHomeDirectory()];
-                } else {
-                    logFileFn = @"/tmp/SMKLogger.log";
-                }
-            } else {
-                logFileFn = [NSString stringWithFormat:@"%@/%@.log",bundlePath,appName];
-                [dfls setObject:logFileFn forKey:[SMKLogger userDefaultLogFile]];
+                appName = [[[NSBundle mainBundle] infoDictionary] 
+                           objectForKey:@"CFBundleName"];
             }
+            if( appName == nil ) {
+                appName = @"SMKLogger";
+            }
+            
+            NSString *bundlePath = [[NSBundle mainBundle] bundlePath]; 
+            if( bundlePath == nil ) {
+                bundlePath = @"/tmp";
+            } else if( [bundlePath rangeOfString:@"DerivedData"].location != NSNotFound ) {
+                // running from build dir, use /tmp;
+                bundlePath = @"/tmp";
+            }
+            self->logFileFn = [[bundlePath stringByAppendingPathComponent: appName] 
+                               stringByAppendingPathExtension:@"log"];
+                              
+            [dfls setObject:logFileFn forKey:[SMKLogger userDefaultLogFile]];
+            
         }
         // OPEN HERE
         if( ! [fm fileExistsAtPath:logFileFn] ) {
