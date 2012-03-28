@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAF1086150E43FC004BBF55 /* SMKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BE14F51B4500D7339B /* SMKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4B814F51B4500D7339B /* SMKLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BF14F51B4500D7339B /* SMKLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4B914F51B4500D7339B /* SMKLogger.m */; };
 		DAB7F4C014F51B4500D7339B /* SMKLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4BA14F51B4500D7339B /* SMKLogin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,6 +19,7 @@
 		DAB7F4C914F51EB200D7339B /* SMKException.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4C714F51EB200D7339B /* SMKException.m */; };
 		DAB7F4CA14F5247400D7339B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99D14F515ED00AF5176 /* Foundation.framework */; };
 		DAB7F4CC14F524A700D7339B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB7F4CB14F524A700D7339B /* Security.framework */; };
+		DAC7827A150E318300DE7723 /* SMKAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC78278150E318300DE7723 /* SMKAspect.m */; };
 		DADEA9A314F515ED00AF5176 /* SMKCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DADEA9A214F515ED00AF5176 /* SMKCommon.m */; };
 		DADEA9AB14F515EE00AF5176 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */; };
 		DADEA9AF14F515EE00AF5176 /* libSMKCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99514F515ED00AF5176 /* libSMKCommon.a */; };
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DAAF1086150E43FC004BBF55 /* SMKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKConfig.h; path = SMKCommon/SMKConfig.h; sourceTree = "<group>"; };
 		DAB7F4B814F51B4500D7339B /* SMKLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogger.h; path = SMKCommon/SMKLogger.h; sourceTree = "<group>"; };
 		DAB7F4B914F51B4500D7339B /* SMKLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKLogger.m; sourceTree = "<group>"; };
 		DAB7F4BA14F51B4500D7339B /* SMKLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogin.h; path = SMKCommon/SMKLogin.h; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		DAB7F4C614F51EB200D7339B /* SMKException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKException.h; path = SMKCommon/SMKException.h; sourceTree = "<group>"; };
 		DAB7F4C714F51EB200D7339B /* SMKException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKException.m; sourceTree = "<group>"; };
 		DAB7F4CB14F524A700D7339B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DAC78278150E318300DE7723 /* SMKAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKAspect.m; sourceTree = "<group>"; };
 		DADEA99514F515ED00AF5176 /* libSMKCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSMKCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADEA99D14F515ED00AF5176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DADEA9A014F515ED00AF5176 /* SMKCommon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMKCommon-Prefix.pch"; sourceTree = "<group>"; };
@@ -89,7 +93,6 @@
 		DADEA98A14F515ED00AF5176 = {
 			isa = PBXGroup;
 			children = (
-				DAB7F4CB14F524A700D7339B /* Security.framework */,
 				DADEA9C114F516BC00AF5176 /* Public Headers */,
 				DADEA99E14F515ED00AF5176 /* Sources */,
 				DADEA99F14F515ED00AF5176 /* Supporting Files */,
@@ -111,6 +114,7 @@
 		DADEA99714F515ED00AF5176 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAB7F4CB14F524A700D7339B /* Security.framework */,
 				DADEA99D14F515ED00AF5176 /* Foundation.framework */,
 				DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */,
 			);
@@ -121,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB7F4C714F51EB200D7339B /* SMKException.m */,
+				DAC78278150E318300DE7723 /* SMKAspect.m */,
 				DAB7F4B914F51B4500D7339B /* SMKLogger.m */,
 				DAB7F4BB14F51B4500D7339B /* SMKLogin.m */,
 				DAB7F4BD14F51B4500D7339B /* TMDbQuery.m */,
@@ -162,6 +167,7 @@
 		DADEA9C114F516BC00AF5176 /* Public Headers */ = {
 			isa = PBXGroup;
 			children = (
+				DAAF1086150E43FC004BBF55 /* SMKConfig.h */,
 				DADEA9A114F515ED00AF5176 /* SMKCommon.h */,
 				DAB7F4C614F51EB200D7339B /* SMKException.h */,
 				DADEA9C314F5172F00AF5176 /* Incremental.h */,
@@ -185,6 +191,7 @@
 				DAB7F4C014F51B4500D7339B /* SMKLogin.h in Headers */,
 				DAB7F4C214F51B4500D7339B /* TMDbQuery.h in Headers */,
 				DAB7F4C814F51EB200D7339B /* SMKException.h in Headers */,
+				DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +299,7 @@
 				DAB7F4C114F51B4500D7339B /* SMKLogin.m in Sources */,
 				DAB7F4C314F51B4500D7339B /* TMDbQuery.m in Sources */,
 				DAB7F4C914F51EB200D7339B /* SMKException.m in Sources */,
+				DAC7827A150E318300DE7723 /* SMKAspect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
