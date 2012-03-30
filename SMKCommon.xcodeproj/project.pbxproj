@@ -20,6 +20,10 @@
 		DAB7F4CA14F5247400D7339B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99D14F515ED00AF5176 /* Foundation.framework */; };
 		DAB7F4CC14F524A700D7339B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB7F4CB14F524A700D7339B /* Security.framework */; };
 		DAC7827A150E318300DE7723 /* SMKAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC78278150E318300DE7723 /* SMKAspect.m */; };
+		DAD814AC1525D66D00346B73 /* SMKMp4Support.c in Sources */ = {isa = PBXBuildFile; fileRef = DAD814AB1525D66D00346B73 /* SMKMp4Support.c */; };
+		DAD814AF1525D68800346B73 /* SMKMp4Support.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD814AE1525D68800346B73 /* SMKMp4Support.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAD814B1152610D400346B73 /* SMKcCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD814B0152610D400346B73 /* SMKcCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAD814B31526121700346B73 /* SMKcCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = DAD814B21526121700346B73 /* SMKcCommon.c */; };
 		DADEA9A314F515ED00AF5176 /* SMKCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DADEA9A214F515ED00AF5176 /* SMKCommon.m */; };
 		DADEA9AB14F515EE00AF5176 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */; };
 		DADEA9AF14F515EE00AF5176 /* libSMKCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99514F515ED00AF5176 /* libSMKCommon.a */; };
@@ -52,6 +56,10 @@
 		DAB7F4C714F51EB200D7339B /* SMKException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKException.m; sourceTree = "<group>"; };
 		DAB7F4CB14F524A700D7339B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DAC78278150E318300DE7723 /* SMKAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKAspect.m; sourceTree = "<group>"; };
+		DAD814AB1525D66D00346B73 /* SMKMp4Support.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMKMp4Support.c; sourceTree = "<group>"; };
+		DAD814AE1525D68800346B73 /* SMKMp4Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKMp4Support.h; path = SMKCommon/SMKMp4Support.h; sourceTree = "<group>"; };
+		DAD814B0152610D400346B73 /* SMKcCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKcCommon.h; sourceTree = "<group>"; };
+		DAD814B21526121700346B73 /* SMKcCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMKcCommon.c; sourceTree = "<group>"; };
 		DADEA99514F515ED00AF5176 /* libSMKCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSMKCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADEA99D14F515ED00AF5176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DADEA9A014F515ED00AF5176 /* SMKCommon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMKCommon-Prefix.pch"; sourceTree = "<group>"; };
@@ -131,6 +139,8 @@
 				DAB7F4BD14F51B4500D7339B /* TMDbQuery.m */,
 				DADEA9A214F515ED00AF5176 /* SMKCommon.m */,
 				DADEA9C414F5172F00AF5176 /* Incremental.m */,
+				DAD814AB1525D66D00346B73 /* SMKMp4Support.c */,
+				DAD814B21526121700346B73 /* SMKcCommon.c */,
 			);
 			name = Sources;
 			path = SMKCommon;
@@ -174,6 +184,8 @@
 				DAB7F4B814F51B4500D7339B /* SMKLogger.h */,
 				DAB7F4BA14F51B4500D7339B /* SMKLogin.h */,
 				DAB7F4BC14F51B4500D7339B /* TMDbQuery.h */,
+				DAD814AE1525D68800346B73 /* SMKMp4Support.h */,
+				DAD814B0152610D400346B73 /* SMKcCommon.h */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";
@@ -192,6 +204,8 @@
 				DAB7F4C214F51B4500D7339B /* TMDbQuery.h in Headers */,
 				DAB7F4C814F51EB200D7339B /* SMKException.h in Headers */,
 				DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */,
+				DAD814AF1525D68800346B73 /* SMKMp4Support.h in Headers */,
+				DAD814B1152610D400346B73 /* SMKcCommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +314,8 @@
 				DAB7F4C314F51B4500D7339B /* TMDbQuery.m in Sources */,
 				DAB7F4C914F51EB200D7339B /* SMKException.m in Sources */,
 				DAC7827A150E318300DE7723 /* SMKAspect.m in Sources */,
+				DAD814AC1525D66D00346B73 /* SMKMp4Support.c in Sources */,
+				DAD814B31526121700346B73 /* SMKcCommon.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
