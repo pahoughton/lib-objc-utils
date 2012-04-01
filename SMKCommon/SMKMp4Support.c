@@ -335,3 +335,45 @@ const char * Mp4EngNameFromITMFRating( const char * rating )
 {
     return Mp4EngNameFromRatingType( Mp4RatingTypeFromITMFRating( rating ) );
 }
+
+bool
+Mp4VidWidthHeightDuration( float *       width,
+                          float *        height,
+                          int64_t *      seconds,
+                          MP4FileHandle  mp4FH )
+{
+    if( width == NULL && height == NULL && seconds == NULL ) {
+        return false;
+    }
+    if( mp4FH == MP4_INVALID_FILE_HANDLE ) {
+        return false;
+    }
+    uint32_t numTracks = MP4GetNumberOfTracks( mp4FH, 0, 0 );
+    for (uint32_t i = 0; i < numTracks; i++) {
+        MP4TrackId trackId = MP4FindTrackId( mp4FH, i, 0, 0 );
+        const char* trackType = MP4GetTrackType(mp4FH, trackId);
+        if( trackType != NULL 
+           && !strcmp(trackType, MP4_VIDEO_TRACK_TYPE)) {
+            
+            if( width ) {
+                MP4GetTrackFloatProperty(mp4FH, trackId,
+                                         "tkhd.width",
+                                         width );
+            }
+            if( height ) {
+                MP4GetTrackFloatProperty(mp4FH, trackId,
+                                         "tkhd.height",
+                                         height );
+            }
+            if( seconds ) {
+                *seconds = MP4ConvertFromTrackDuration(mp4FH, 
+                                                       trackId, 
+                                                       MP4GetTrackDuration( mp4FH,
+                                                                           trackId), 
+                                                       MP4_MSECS_TIME_SCALE) / 1000;
+            }
+            return true;
+        }
+    }
+    return false;
+}

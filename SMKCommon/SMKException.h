@@ -64,7 +64,7 @@ private:
 
 inline std::ostream & operator << ( std::ostream & dest, const SMKException & obj )
 {
-    dest << obj.mFileName << ':' << obj.mFileLine << ' ' << obj.mDesc << std::endl;
+    dest << basename( obj.mFileName ) << ':' << obj.mFileLine << ' ' << obj.mDesc << std::endl;
     return dest;
 }
 #else 

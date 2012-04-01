@@ -152,6 +152,10 @@ extern "C" {
     /* PG-13 from mpaa|PG-13|300| */
     const char * Mp4EngNameFromITMFRating( const char * rating );
     
+    bool Mp4VidWidthHeightDuration( float * width, 
+                                   float * height, 
+                                   int64_t * seconds,
+                                   MP4FileHandle mp4FH );
 #if defined( __cplusplus )
 };
 #endif
