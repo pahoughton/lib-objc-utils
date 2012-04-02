@@ -7,7 +7,7 @@
 //
 
 #import "SMKLogin.h"
-#import "SMKException.h"
+#import "SMKObjcException.h"
 #import <Security/Security.h>
 
 @implementation SMKLogin

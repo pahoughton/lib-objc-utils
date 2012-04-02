@@ -23,7 +23,7 @@
   $Id$
 
 **/
-#import "SMKException.h"
+#import "SMKObjcException.h"
 #import "SMKLogger.h"
 @implementation SMKException
 +(void)raise:(NSString *)name format:(NSString *)format, ...

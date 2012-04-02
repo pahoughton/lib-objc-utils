@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Secure Media Keepers. All rights reserved.
 //
 
-#import "SMKCommon.h"
+#import "SMKObjcCommon.h"
 
 NSString * SMKShortByteSize( NSUInteger val ) 
 {
