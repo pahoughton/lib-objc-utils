@@ -12,8 +12,6 @@
 		DAB7F4BF14F51B4500D7339B /* SMKLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4B914F51B4500D7339B /* SMKLogger.m */; };
 		DAB7F4C014F51B4500D7339B /* SMKLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4BA14F51B4500D7339B /* SMKLogin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4C114F51B4500D7339B /* SMKLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4BB14F51B4500D7339B /* SMKLogin.m */; };
-		DAB7F4C214F51B4500D7339B /* TMDbQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4BC14F51B4500D7339B /* TMDbQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DAB7F4C314F51B4500D7339B /* TMDbQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4BD14F51B4500D7339B /* TMDbQuery.m */; };
 		DAB7F4C414F51B9700D7339B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DADEA99D14F515ED00AF5176 /* Foundation.framework */; };
 		DAB7F4C814F51EB200D7339B /* SMKException.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4C614F51EB200D7339B /* SMKException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4C914F51EB200D7339B /* SMKException.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4C714F51EB200D7339B /* SMKException.m */; };
@@ -51,8 +49,6 @@
 		DAB7F4B914F51B4500D7339B /* SMKLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKLogger.m; sourceTree = "<group>"; };
 		DAB7F4BA14F51B4500D7339B /* SMKLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogin.h; path = SMKCommon/SMKLogin.h; sourceTree = "<group>"; };
 		DAB7F4BB14F51B4500D7339B /* SMKLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKLogin.m; sourceTree = "<group>"; };
-		DAB7F4BC14F51B4500D7339B /* TMDbQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMDbQuery.h; path = SMKCommon/TMDbQuery.h; sourceTree = "<group>"; };
-		DAB7F4BD14F51B4500D7339B /* TMDbQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDbQuery.m; sourceTree = "<group>"; };
 		DAB7F4C614F51EB200D7339B /* SMKException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKException.h; path = SMKCommon/SMKException.h; sourceTree = "<group>"; };
 		DAB7F4C714F51EB200D7339B /* SMKException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKException.m; sourceTree = "<group>"; };
 		DAB7F4CB14F524A700D7339B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -140,7 +136,6 @@
 				DAC78278150E318300DE7723 /* SMKAspect.m */,
 				DAB7F4B914F51B4500D7339B /* SMKLogger.m */,
 				DAB7F4BB14F51B4500D7339B /* SMKLogin.m */,
-				DAB7F4BD14F51B4500D7339B /* TMDbQuery.m */,
 				DADEA9C414F5172F00AF5176 /* Incremental.m */,
 				DAD814AB1525D66D00346B73 /* SMKMp4Support.c */,
 			);
@@ -188,7 +183,6 @@
 				DADEA9C314F5172F00AF5176 /* Incremental.h */,
 				DAB7F4B814F51B4500D7339B /* SMKLogger.h */,
 				DAB7F4BA14F51B4500D7339B /* SMKLogin.h */,
-				DAB7F4BC14F51B4500D7339B /* TMDbQuery.h */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";
@@ -204,7 +198,6 @@
 				DADEA9C514F5172F00AF5176 /* Incremental.h in Headers */,
 				DAB7F4BE14F51B4500D7339B /* SMKLogger.h in Headers */,
 				DAB7F4C014F51B4500D7339B /* SMKLogin.h in Headers */,
-				DAB7F4C214F51B4500D7339B /* TMDbQuery.h in Headers */,
 				DAB7F4C814F51EB200D7339B /* SMKException.h in Headers */,
 				DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */,
 				DAD814AF1525D68800346B73 /* SMKMp4Support.h in Headers */,
@@ -315,7 +308,6 @@
 				DADEA9C614F5172F00AF5176 /* Incremental.m in Sources */,
 				DAB7F4BF14F51B4500D7339B /* SMKLogger.m in Sources */,
 				DAB7F4C114F51B4500D7339B /* SMKLogin.m in Sources */,
-				DAB7F4C314F51B4500D7339B /* TMDbQuery.m in Sources */,
 				DAB7F4C914F51EB200D7339B /* SMKException.m in Sources */,
 				DAC7827A150E318300DE7723 /* SMKAspect.m in Sources */,
 				DAD814AC1525D66D00346B73 /* SMKMp4Support.c in Sources */,
