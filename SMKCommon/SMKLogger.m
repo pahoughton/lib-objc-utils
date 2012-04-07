@@ -119,9 +119,10 @@ static NSDateFormatter * dfltLogDateFormater = nil;
             }
             
             NSString *bundlePath = [[NSBundle mainBundle] bundlePath]; 
-            if( bundlePath == nil ) {
-                bundlePath = @"/tmp";
-            } else if( [bundlePath rangeOfString:@"DerivedData"].location != NSNotFound ) {
+            if( bundlePath == nil
+               || [bundlePath rangeOfString:@"DerivedData"].location != NSNotFound 
+               || [bundlePath rangeOfString:@"Xcode.app"].location != NSNotFound 
+               ) {
                 // running from build dir, use /tmp;
                 bundlePath = @"/tmp";
             }
