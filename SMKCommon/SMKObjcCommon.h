@@ -20,6 +20,8 @@ NSString * SMKHHMMSSFromSeconds( NSInteger secs ); // HHMMSS
 NSString * SMKTimeStampShort(void);
 NSString * SMKShortByteSize( NSUInteger val ); // 25.03 GB; 145 KB ...
 
+NSArray *
+SMKSplitAmpCommaString( NSString * str );
 
 @interface SMKCommon : NSObject
 

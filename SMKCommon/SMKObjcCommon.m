@@ -29,6 +29,23 @@ NSString * SMKShortByteSize( NSUInteger val )
     }
 }
 
+NSArray *
+SMKSplitAmpCommaString( NSString * str )
+{
+  NSString * alistStr = str;
+  NSArray * alist = [alistStr componentsSeparatedByString:@" & "];
+  if( [alist count] > 1 ) {
+    NSArray * a0list = [[alist objectAtIndex:0] componentsSeparatedByString:@", "];
+    NSArray * a1list = [[alist objectAtIndex:1] componentsSeparatedByString:@", "];
+    if( [a0list count] > 1 || [a1list count] > 1 ) {
+      return [a0list arrayByAddingObjectsFromArray:a1list];
+    }
+  } else {
+    alist = [alistStr componentsSeparatedByString:@", "];
+  }
+  return alist;  
+}
+
 @implementation SMKCommon
 
 - (id)init
