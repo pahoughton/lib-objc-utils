@@ -33,6 +33,7 @@
 
 #define SMKThrow( desc_, ... ) throw SMKException( __FILE__, __LINE__, desc_, ##__VA_ARGS__ )
 
+
 class SMKException : public std::exception
 {
 public:

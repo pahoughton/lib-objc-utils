@@ -36,6 +36,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define SMKFunctUnsup [NSException raise:[self className] format:@"%@::%s Unsupported",[self className],__func__]
+
 @interface SMKLogger : NSObject
 enum LogLevel {
     SMK_LOG_DEBUG,
