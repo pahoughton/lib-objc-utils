@@ -116,4 +116,4 @@ fmt:fmt_, ##__VA_ARGS__ ] \
 
 #define SMKLogExcept( _exc_ ) [SMKLogger logException:_exc_ src:__FILE__ line:__LINE__]
 
-
+#define SMKLogFunct SMKLogDebug( @"%s",__func__)
