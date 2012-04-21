@@ -68,6 +68,6 @@
 
 -(NSString *)description
 {
-    return [[NSString alloc]initWithFormat:@"%d",value];
+    return [[NSString alloc]initWithFormat:@"%ld",value];
 }
 @end

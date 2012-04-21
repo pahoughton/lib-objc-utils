@@ -25,7 +25,7 @@ NSString * SMKShortByteSize( NSUInteger val )
                 @"%.02f KB",sz / kb];
     } else {
         return [[NSString alloc] initWithFormat:
-                @"%d",val];    
+                @"%ld",val];    
     }
 }
 
