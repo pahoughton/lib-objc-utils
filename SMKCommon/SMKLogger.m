@@ -23,6 +23,7 @@
  **/
 
 #import "SMKLogger.h"
+#import "StlUtilsLogTie.h"
 
 static NSString * SMKLogLevelStrings[] = { @"DBG ",
     @"INF ",
@@ -60,8 +61,7 @@ static NSDateFormatter * dfltLogDateFormater = nil;
     NSNumber * udNumVal;
 
     if( dfltLogDateFormater == nil ) {
-        // FIXME - this is to clean out the old format string
-        udStrVal = nil; // [dfls stringForKey:[SMKLogger userDefaultDateFormatKey]];
+        udStrVal = [dfls stringForKey:[SMKLogger userDefaultDateFormatKey]];
         if( udStrVal != nil ) {
             dfltLogDateFormater = [[NSDateFormatter alloc]init];
             [dfltLogDateFormater setDateFormat:udStrVal];
@@ -252,8 +252,8 @@ static NSDateFormatter * dfltLogDateFormater = nil;
     [logLock unlock];
 }
 
--(void)logIt:(enum LogLevel)lvl 
-         src:(const char *)srcFn 
+-(void)logIt:(enum SMKLogLevel)lvl
+        func:(const char *)func
         line:(int)srcLine
          fmt:(NSString *)msgFmt
    arguments:(va_list)args
@@ -282,7 +282,7 @@ static NSDateFormatter * dfltLogDateFormater = nil;
     }
     
     if( logDoOutputSrcLine ) {
-        NSString * srcFile = [[NSString stringWithUTF8String:srcFn]
+        NSString * srcFile = [[NSString stringWithUTF8String:func]
                               lastPathComponent];
         
         [logEntry appendFormat:@"%@:%d ",srcFile,srcLine];
@@ -320,21 +320,20 @@ static NSDateFormatter * dfltLogDateFormater = nil;
     }
 }
 
--(void)logIt:(enum LogLevel)lvl 
-         src:(const char *)srcFn 
+-(void)logIt:(enum SMKLogLevel)lvl
+        func:(const char *)func
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ...
 {    
-    va_list(args);
-    va_start(args, msgFmt);
-    [self logIt:lvl src:srcFn line:srcLine fmt:msgFmt arguments:args];
-    va_end(args);
-    
-    
+  va_list(args);
+  va_start(args, msgFmt);
+  [self logIt:lvl func:func line:srcLine fmt:msgFmt arguments:args];
+  va_end(args);
+      
 }
 
-+(void)logIt:(enum LogLevel)lvl 
-         src:(const char *)srcFn 
++(void)logIt:(enum SMKLogLevel)lvl
+        func:(const char *)func
         line:(int)srcLine
          fmt:(NSString *)msgFmt, ...
 {
@@ -348,21 +347,21 @@ static NSDateFormatter * dfltLogDateFormater = nil;
     
     va_list(args);
     va_start(args, msgFmt);
-    [logger logIt:lvl src:srcFn line:srcLine fmt:msgFmt arguments:args];
+    [logger logIt:lvl func:func line:srcLine fmt:msgFmt arguments:args];
     va_end(args);
 }
 
-+(void)logException:(NSException *)except src:(const char *)srcFn line:(int)srcLine
++(void)logException:(NSException *)except func:(const char *)func line:(int)srcLine
 {
-    SMKLogger * logger = [SMKLogger appLogger];
-    
-    NSMutableString * excMsg = [[NSMutableString alloc] init];
-    [excMsg appendFormat:@"Exception: %@: %@\n",[except name], [except reason]];
-    NSArray * backTrace = [except callStackSymbols];
-    for( NSString * symName in backTrace ) {
-        [excMsg appendFormat:@"    %@\n",symName];
-    }
-    [logger logIt:SMK_LOG_ERROR src:srcFn line:srcLine fmt:@"%@",excMsg];
+  SMKLogger * logger = [SMKLogger appLogger];
+  
+  NSMutableString * excMsg = [[NSMutableString alloc] init];
+  [excMsg appendFormat:@"Exception: %@: %@\n",[except name], [except reason]];
+  NSArray * backTrace = [except callStackSymbols];
+  for( NSString * symName in backTrace ) {
+    [excMsg appendFormat:@"    %@\n",symName];
+  }
+  [logger logIt:SMK_LOG_ERROR func:func line:srcLine fmt:@"%@",excMsg];
 }
 
 -(void) dealloc
@@ -374,10 +373,11 @@ static NSDateFormatter * dfltLogDateFormater = nil;
 
 +(SMKLogger *)appLogger
 {
-    if( dfltAppLogger == nil ) {
-        dfltAppLogger = [[SMKLogger alloc]init];
-    }
-    return dfltAppLogger;
+  if( dfltAppLogger == nil ) {
+    dfltAppLogger = [[SMKLogger alloc]init];
+    TieStlUtilsLogToSMKLogger( dfltAppLogger );
+  }
+  return dfltAppLogger;
 }
 
 +(NSString *)userDefaultDateFormatKey

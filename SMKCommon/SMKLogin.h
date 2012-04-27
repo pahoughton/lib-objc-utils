@@ -1,10 +1,26 @@
-//
-//  SMKLogin.h
-//  Dig-It
-//
-//  Created by Paul Houghton on 1/28/12.
-//  Copyright (c) 2012 Secure Media Keepers. All rights reserved.
-//
+/**
+ File:		SMKLogin.h
+ Project:	SMKCocoaCommon 
+ Desc:
+ Notes:
+ 
+ Author(s):   Paul Houghton <Paul.Houghton@SecureMediaKeepers.com>
+ Created:     01/28/12
+ Copyright:   Copyright (c) 2012 Secure Media Keepers
+              www.SecureMediaKeepers.com
+              All rights reserved.
+ 
+ Revision History: (See ChangeLog for details)
+ 
+   $Author$
+   $Date$
+   $Revision$
+   $Name$
+   $State$
+ 
+ $Id$
+ 
+ **/
 
 #import <Foundation/Foundation.h>
 

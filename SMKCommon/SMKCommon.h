@@ -25,6 +25,8 @@
   $Id$
 
 **/
+#include "SMKConfig.h"
+#include "SMKException.h"
 
 typedef enum SMKImgAspect_enum {
     SMK_ASPECT_4_3,  /* 4:3 */
@@ -45,6 +47,12 @@ extern "C" {
 };
 #endif
 
+
+#if defined (__OBJC__)
+#import "SMKLogger.h"
+#import "Incremental.h"
+#import "SMKLogin.h"
+#endif
 
 
 #endif /* ! def SMKCommon_SMKcCommon_h_ */

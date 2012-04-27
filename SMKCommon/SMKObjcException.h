@@ -25,7 +25,3 @@
 **/
 #import <Foundation/Foundation.h>
 
-@interface SMKException : NSException
-+(void)raise:(NSString *)name format:(NSString *)format, ...;
-
-@end

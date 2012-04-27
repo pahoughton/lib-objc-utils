@@ -23,17 +23,26 @@
   $Id$
 
 **/
-#import "SMKObjcException.h"
+#import "SMKException.h"
 #import "SMKLogger.h"
 @implementation SMKException
-+(void)raise:(NSString *)name format:(NSString *)format, ...
++(void)raise: (NSString *)name
+        file: (const char *) fileName
+       funct: (const char *) funcName
+        line: (int)          lineNum
+       descr: (NSString *)   descr, ...
 {
-    va_list args;
-    va_start(args, format);
-    NSString * fmtStr = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    SMKLogWarn(@"Excpt: %@ %@", name, fmtStr);
-    [super raise:name format:fmtStr];
+  va_list args;
+  va_start(args, descr );
+  NSString * descStr = [[NSString alloc] initWithFormat: descr arguments: args];
+  va_end(args);
+  NSString * msg = [NSString stringWithFormat:
+                    @"%s:%d %@"
+                    ,funcName
+                    ,lineNum
+                    ,descStr ];
+  [SMKLogger logIt:SMK_LOG_WARN func: funcName line:lineNum fmt:@"%@",msg];
+  [super raise:@"SMKException" format: @"%@",msg];
 }
 
 @end

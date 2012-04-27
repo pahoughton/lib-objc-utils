@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0DB9831549BDEE00B46107 /* SMKException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA0DB9811549BDEE00B46107 /* SMKException.cpp */; };
+		DA0DB9881549D33700B46107 /* NSFileHandleStreamBuf.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */; };
+		DA0DB9891549D33700B46107 /* NSFileHandleStreamBuf.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */; };
 		DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAF1086150E43FC004BBF55 /* SMKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BE14F51B4500D7339B /* SMKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4B814F51B4500D7339B /* SMKLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BF14F51B4500D7339B /* SMKLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4B914F51B4500D7339B /* SMKLogger.m */; };
@@ -31,6 +34,8 @@
 		DADEA9C214F516FE00AF5176 /* SMKObjcCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEA9A114F515ED00AF5176 /* SMKObjcCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DADEA9C514F5172F00AF5176 /* Incremental.h in Headers */ = {isa = PBXBuildFile; fileRef = DADEA9C314F5172F00AF5176 /* Incremental.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DADEA9C614F5172F00AF5176 /* Incremental.m in Sources */ = {isa = PBXBuildFile; fileRef = DADEA9C414F5172F00AF5176 /* Incremental.m */; };
+		DAF37C2F1548B40900D3C817 /* StlUtilsLogTie.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF37C2D1548B40900D3C817 /* StlUtilsLogTie.h */; };
+		DAF37C301548B40900D3C817 /* StlUtilsLogTie.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAF37C2E1548B40900D3C817 /* StlUtilsLogTie.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA0DB9811549BDEE00B46107 /* SMKException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SMKException.cpp; sourceTree = "<group>"; };
+		DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSFileHandleStreamBuf.mm; sourceTree = "<group>"; };
+		DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSFileHandleStreamBuf.h; path = SMKCommon/NSFileHandleStreamBuf.h; sourceTree = "<group>"; };
 		DAAF1086150E43FC004BBF55 /* SMKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKConfig.h; path = SMKCommon/SMKConfig.h; sourceTree = "<group>"; };
 		DAB7F4B814F51B4500D7339B /* SMKLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogger.h; path = SMKCommon/SMKLogger.h; sourceTree = "<group>"; };
 		DAB7F4B914F51B4500D7339B /* SMKLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKLogger.m; sourceTree = "<group>"; };
@@ -71,6 +79,8 @@
 		DADEA9B714F515EE00AF5176 /* SMKCommonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMKCommonTests.m; sourceTree = "<group>"; };
 		DADEA9C314F5172F00AF5176 /* Incremental.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Incremental.h; path = SMKCommon/Incremental.h; sourceTree = "<group>"; };
 		DADEA9C414F5172F00AF5176 /* Incremental.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incremental.m; sourceTree = "<group>"; };
+		DAF37C2D1548B40900D3C817 /* StlUtilsLogTie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StlUtilsLogTie.h; sourceTree = "<group>"; };
+		DAF37C2E1548B40900D3C817 /* StlUtilsLogTie.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StlUtilsLogTie.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +143,15 @@
 				DAD814B21526121700346B73 /* SMKCommon.c */,
 				DADEA9A214F515ED00AF5176 /* SMKObjcCommon.m */,
 				DAB7F4C714F51EB200D7339B /* SMKException.m */,
+				DA0DB9811549BDEE00B46107 /* SMKException.cpp */,
 				DAC78278150E318300DE7723 /* SMKAspect.m */,
 				DAB7F4B914F51B4500D7339B /* SMKLogger.m */,
 				DAB7F4BB14F51B4500D7339B /* SMKLogin.m */,
 				DADEA9C414F5172F00AF5176 /* Incremental.m */,
 				DAD814AB1525D66D00346B73 /* SMKMp4Support.c */,
+				DAF37C2D1548B40900D3C817 /* StlUtilsLogTie.h */,
+				DAF37C2E1548B40900D3C817 /* StlUtilsLogTie.mm */,
+				DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */,
 			);
 			name = Sources;
 			path = SMKCommon;
@@ -176,6 +190,7 @@
 			children = (
 				DAAF1086150E43FC004BBF55 /* SMKConfig.h */,
 				DAD814B0152610D400346B73 /* SMKCommon.h */,
+				DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */,
 				DADEA9A114F515ED00AF5176 /* SMKObjcCommon.h */,
 				DAB7F4C614F51EB200D7339B /* SMKException.h */,
 				DACAD9801529C685006BF369 /* SMKObjcException.h */,
@@ -203,6 +218,8 @@
 				DAD814AF1525D68800346B73 /* SMKMp4Support.h in Headers */,
 				DAD814B1152610D400346B73 /* SMKCommon.h in Headers */,
 				DACAD9811529C685006BF369 /* SMKObjcException.h in Headers */,
+				DAF37C2F1548B40900D3C817 /* StlUtilsLogTie.h in Headers */,
+				DA0DB9891549D33700B46107 /* NSFileHandleStreamBuf.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +329,9 @@
 				DAC7827A150E318300DE7723 /* SMKAspect.m in Sources */,
 				DAD814AC1525D66D00346B73 /* SMKMp4Support.c in Sources */,
 				DAD814B31526121700346B73 /* SMKCommon.c in Sources */,
+				DAF37C301548B40900D3C817 /* StlUtilsLogTie.mm in Sources */,
+				DA0DB9831549BDEE00B46107 /* SMKException.cpp in Sources */,
+				DA0DB9881549D33700B46107 /* NSFileHandleStreamBuf.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
