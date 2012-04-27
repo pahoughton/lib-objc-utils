@@ -26,5 +26,6 @@
 
 #import <Foundation/Foundation.h>
 @class SMKLogger;
-
-void TieStlUtilsLogToSMKLogger( SMKLogger * loggerFH );
+@interface StlUtilsLogTie : NSObject
++(void)tieToSMKLogger:(SMKLogger *)logger;
+@end

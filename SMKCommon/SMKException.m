@@ -41,8 +41,9 @@
                     ,funcName
                     ,lineNum
                     ,descStr ];
-  [SMKLogger logIt:SMK_LOG_WARN func: funcName line:lineNum fmt:@"%@",msg];
-  [super raise:@"SMKException" format: @"%@",msg];
+  NSException * me = [SMKException exceptionWithName:@"SMKException" reason:msg userInfo:nil];
+  SMKLogExcept(me);
+  @throw me;
 }
 
 @end
