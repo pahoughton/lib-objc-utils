@@ -61,13 +61,9 @@ public:
     mDesc.append( tmpDesc );
   };
 
-  inline virtual ~SMKException( void ) throw () {
-    if( mFunct ) free( mFunct );
-  };
+  virtual ~SMKException( void ) throw ();
   
-  inline virtual const char * what( void ) {
-    return mDesc.c_str();
-  };
+  virtual const char * what( void ) const throw();
   
 protected:
 private:

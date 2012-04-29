@@ -359,6 +359,9 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   NSMutableString * excMsg = [[NSMutableString alloc] init];
   [excMsg appendFormat:@"Exception: %@: %@\n",[except name], [except reason]];
   NSArray * backTrace = [except callStackSymbols];
+  if( backTrace == nil || backTrace.count == 0) {
+    backTrace = [NSThread callStackSymbols];
+  }
   for( NSString * symName in backTrace ) {
     [excMsg appendFormat:@"    %@\n",symName];
   }
