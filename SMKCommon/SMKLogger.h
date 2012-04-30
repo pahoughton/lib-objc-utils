@@ -48,17 +48,17 @@ enum SMKLogLevel {
 };
 
 @property (assign) enum SMKLogLevel outLogLevel;
-@property (retain,readonly) NSString * logFileFn;
-@property (assign) NSUInteger maxLogSize;
-@property (retain) NSDateFormatter * dateFormater;
-@property (assign) BOOL logDoOutputDate;
-@property (assign) BOOL logDoOutputSrcLine;
-@property (assign) BOOL logDoOutputLevel;
-@property (retain) NSFileHandle * logFile;
-@property (retain) SMKLogger * teeLogger;
-@property (assign) BOOL logIsFile;
-@property (assign) NSFileManager * fm;
-@property (retain) NSLock * logLock;
+@property (strong) NSString *        logFileFn;
+@property (retain) NSFileHandle *    logFile;
+@property (assign) NSUInteger        maxLogSize;
+@property (strong) NSDateFormatter * dateFormater;
+@property (assign) BOOL              logDoOutputDate;
+@property (assign) BOOL              logDoOutputSrcLine;
+@property (assign) BOOL              logDoOutputLevel;
+@property (strong) SMKLogger *       teeLogger;
+@property (assign) BOOL              logIsFile;
+@property (assign) NSFileManager *   fm;
+// @property (strong) NSLock *          logLock;
 
 +(SMKLogger *)appLogger;
 +(NSString *)userDefaultDateFormatKey;

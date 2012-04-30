@@ -10,6 +10,10 @@
 		DA0DB9831549BDEE00B46107 /* SMKException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA0DB9811549BDEE00B46107 /* SMKException.cpp */; };
 		DA0DB9881549D33700B46107 /* NSFileHandleStreamBuf.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */; };
 		DA0DB9891549D33700B46107 /* NSFileHandleStreamBuf.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */; };
+		DA50D1F9154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */; };
+		DA50D1FC154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */; };
+		DA50D1FE154EC60000F1A9C2 /* libCommon_s.a.4.01.01 in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */; };
+		DA50D200154EC60800F1A9C2 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50D1FF154EC60800F1A9C2 /* libstdc++.dylib */; };
 		DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAF1086150E43FC004BBF55 /* SMKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BE14F51B4500D7339B /* SMKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4B814F51B4500D7339B /* SMKLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BF14F51B4500D7339B /* SMKLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4B914F51B4500D7339B /* SMKLogger.m */; };
@@ -52,6 +56,10 @@
 		DA0DB9811549BDEE00B46107 /* SMKException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SMKException.cpp; sourceTree = "<group>"; };
 		DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSFileHandleStreamBuf.mm; sourceTree = "<group>"; };
 		DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSFileHandleStreamBuf.h; path = SMKCommon/NSFileHandleStreamBuf.h; sourceTree = "<group>"; };
+		DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStlUtils_g.a.11.01.01; path = ../../../../../../Support/lib/libStlUtils_g.a.11.01.01; sourceTree = "<group>"; };
+		DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGnuRegex_s.a.3.01.01; path = ../../../../../../Support/lib/libGnuRegex_s.a.3.01.01; sourceTree = "<group>"; };
+		DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCommon_s.a.4.01.01; path = ../../../../../../Support/lib/libCommon_s.a.4.01.01; sourceTree = "<group>"; };
+		DA50D1FF154EC60800F1A9C2 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/i686-apple-darwin11/4.2.1/libstdc++.dylib"; sourceTree = SDKROOT; };
 		DAAF1086150E43FC004BBF55 /* SMKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKConfig.h; path = SMKCommon/SMKConfig.h; sourceTree = "<group>"; };
 		DAB7F4B814F51B4500D7339B /* SMKLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogger.h; path = SMKCommon/SMKLogger.h; sourceTree = "<group>"; };
 		DAB7F4B914F51B4500D7339B /* SMKLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKLogger.m; sourceTree = "<group>"; };
@@ -96,6 +104,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA50D200154EC60800F1A9C2 /* libstdc++.dylib in Frameworks */,
+				DA50D1FE154EC60000F1A9C2 /* libCommon_s.a.4.01.01 in Frameworks */,
+				DA50D1FC154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 in Frameworks */,
+				DA50D1F9154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 in Frameworks */,
 				DADEA9AF14F515EE00AF5176 /* libSMKCommon.a in Frameworks */,
 				DAB7F4CC14F524A700D7339B /* Security.framework in Frameworks */,
 				DADEA9AB14F515EE00AF5176 /* SenTestingKit.framework in Frameworks */,
@@ -109,6 +121,10 @@
 		DADEA98A14F515ED00AF5176 = {
 			isa = PBXGroup;
 			children = (
+				DA50D1FF154EC60800F1A9C2 /* libstdc++.dylib */,
+				DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */,
+				DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */,
+				DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */,
 				DADEA9C114F516BC00AF5176 /* Public Headers */,
 				DADEA99E14F515ED00AF5176 /* Sources */,
 				DADEA99F14F515ED00AF5176 /* Supporting Files */,
@@ -455,6 +471,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
 				INFOPLIST_FILE = "SMKCommonTests/SMKCommonTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Support/lib,
+					"\"$(SDKROOT)/usr/lib/i686-apple-darwin11/4.2.1\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -467,6 +488,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
 				INFOPLIST_FILE = "SMKCommonTests/SMKCommonTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Support/lib,
+					"\"$(SDKROOT)/usr/lib/i686-apple-darwin11/4.2.1\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -482,7 +508,7 @@
 				DADEA9BA14F515EE00AF5176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DADEA9BB14F515EE00AF5176 /* Build configuration list for PBXNativeTarget "SMKCommon" */ = {
 			isa = XCConfigurationList;
@@ -491,7 +517,7 @@
 				DADEA9BD14F515EE00AF5176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DADEA9BE14F515EE00AF5176 /* Build configuration list for PBXNativeTarget "SMKCommonTests" */ = {
 			isa = XCConfigurationList;
@@ -500,7 +526,7 @@
 				DADEA9C014F515EE00AF5176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -31,22 +31,24 @@
 
 - (void)testExample
 {
-    SMKException * ex = [[SMKException alloc] init];
-    STAssertNotNil(ex, @"ex not nil");
-    
-    SMKLogin * smkLogin = [[SMKLogin alloc]init];
-    STAssertNotNil(smkLogin, @"smkLogin nil");
-    
-    SMKLogger * logger = [[SMKLogger alloc]initToStderr];
-    STAssertNotNil( logger, @"logger nil");
-    
-    Incremental * incr = [[Incremental alloc]init];
-    STAssertNotNil( incr , @"incr");
-    [incr incr];
-    STAssertEquals([incr value], 1, @"value");
+  /*
+  SMKException * ex = [[SMKException alloc] init];
+  STAssertNotNil(ex, @"ex not nil");
+  */
+  SMKLogin * smkLogin = [[SMKLogin alloc]init];
+  STAssertNotNil(smkLogin, @"smkLogin nil");
+  
+  SMKLogger * logger = [[SMKLogger alloc]initToStderr];
+  STAssertNotNil( logger, @"logger nil");
+  
+  Incremental * incr = [[Incremental alloc]init];
+  STAssertNotNil( incr , @"incr");
+  [incr incr];
+  STAssertEquals([incr value], 1, @"value");
 
-    TMDbQuery * tmdb = [[TMDbQuery alloc] init];
-    STAssertNotNil(tmdb, @"tmdb nil");
+  for( int i = 0; i < 10000; ++ i ) {
+    SMKLogDebug(@"test this logger with a loop %d",i);
+  }
     
 }
 

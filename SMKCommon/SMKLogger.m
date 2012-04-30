@@ -36,27 +36,27 @@ static NSUInteger  dfltMaxSize = (50 * 1024); // i.e 50K
 static NSDateFormatter * dfltLogDateFormater = nil;
 
 @implementation SMKLogger
-@synthesize outLogLevel;
-@synthesize logFileFn;
-@synthesize maxLogSize;
-@synthesize dateFormater;
-@synthesize logDoOutputDate;
-@synthesize logDoOutputLevel;
-@synthesize logDoOutputSrcLine;
-@synthesize logFile;
-@synthesize teeLogger;
-@synthesize logIsFile;
-@synthesize fm;
-@synthesize logLock;
+@synthesize outLogLevel          = _outLogLevel;
+@synthesize logFileFn            = _logFileFn;
+@synthesize maxLogSize           = _maxLogSize;
+@synthesize dateFormater         = _dateFormater;
+@synthesize logDoOutputDate      = _logDoOutputDate;
+@synthesize logDoOutputLevel     = _logDoOutputLevel;
+@synthesize logDoOutputSrcLine   = _logDoOutputSrcLine;
+@synthesize logFile              = _logFile;
+@synthesize teeLogger            = _teeLogger;
+@synthesize logIsFile            = _logIsFile;
+@synthesize fm                   = _fm;
+//@synthesize logLock;
 
 -(void)cnfgLogger:(NSFileHandle *)logHandle
 {
-  fm = [NSFileManager defaultManager];
+  [ self setFm: [NSFileManager defaultManager]];
   
-  logDoOutputDate = TRUE;
-  logDoOutputLevel = TRUE;
-  logDoOutputSrcLine = TRUE;
-  teeLogger = nil;
+  [self setLogDoOutputDate: TRUE ];
+  [self setLogDoOutputLevel: TRUE ];
+  [self setLogDoOutputSrcLine: TRUE ];
+  [self setTeeLogger: nil ];
   NSUserDefaults * dfls = [NSUserDefaults standardUserDefaults];
   NSString * udStrVal;
   NSNumber * udNumVal;
@@ -72,17 +72,17 @@ static NSDateFormatter * dfltLogDateFormater = nil;
       [dfltLogDateFormater setDateFormat:dfltDateFmtStr];
       [dfls setObject:dfltDateFmtStr forKey:[SMKLogger userDefaultDateFormatKey]];
     }
-    dateFormater = dfltLogDateFormater;
+    [self setDateFormater: dfltLogDateFormater];
   } else {
-    dateFormater = dfltLogDateFormater;        
+    [self setDateFormater: dfltLogDateFormater ];
   }
   
   udNumVal = [dfls objectForKey:[SMKLogger userDefaultMaxLogSize]];
   if( udNumVal != nil ) {
-    maxLogSize = [udNumVal unsignedIntegerValue];
+    [self setMaxLogSize: [udNumVal unsignedIntegerValue] ];
   } else {
-    maxLogSize = dfltMaxSize;
-    NSNumber * dfltMaxSize = [NSNumber numberWithUnsignedInteger:maxLogSize];
+    [self setMaxLogSize: dfltMaxSize ];
+    NSNumber * dfltMaxSize = [NSNumber numberWithUnsignedInteger:self.maxLogSize];
     [dfls setObject:dfltMaxSize forKey:[SMKLogger userDefaultMaxLogSize]];
   }
   
@@ -90,23 +90,21 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   if( udStrVal != nil ) {
     // ok cheating - only going by first letter :)
     if( [udStrVal characterAtIndex:0] == 'N' ) {
-      outLogLevel = SMK_LOG_NONE;
+      [self setOutLogLevel: SMK_LOG_NONE ];
     } else if( [udStrVal characterAtIndex:0] == 'E' ) {
-      outLogLevel = SMK_LOG_ERROR;
+      [self setOutLogLevel: SMK_LOG_ERROR ];
     } else if( [udStrVal characterAtIndex:0] == 'W' ) {
-      outLogLevel = SMK_LOG_WARN;
+      [self setOutLogLevel: SMK_LOG_WARN ];
     } else if( [udStrVal characterAtIndex:0] == 'I' ) {
-      outLogLevel = SMK_LOG_INFO;
+      [self setOutLogLevel: SMK_LOG_INFO ];
     } else {
       //oops may as well output debug
-      outLogLevel = SMK_LOG_DEBUG;
+      [self setOutLogLevel: SMK_LOG_DEBUG ];
     }
   }
   if( logHandle == nil ) {
-    udStrVal = [dfls objectForKey:[SMKLogger userDefaultLogFile]];
-    if( udStrVal != nil ) {
-      logFileFn = udStrVal;
-    } else {
+    NSString * lgFn = [dfls objectForKey:[SMKLogger userDefaultLogFile]];
+    if( lgFn == nil ) {
       NSString *appName;
       
       appName = [[[NSBundle mainBundle] localizedInfoDictionary] 
@@ -127,30 +125,18 @@ static NSDateFormatter * dfltLogDateFormater = nil;
         // running from build dir, use /tmp;
         bundlePath = @"/tmp";
       }
-      self->logFileFn = [[bundlePath stringByAppendingPathComponent: appName] 
-                         stringByAppendingPathExtension:@"log"];
-      
-      [dfls setObject:logFileFn forKey:[SMKLogger userDefaultLogFile]];
+      lgFn = [[bundlePath stringByAppendingPathComponent: appName] 
+              stringByAppendingPathExtension:@"log"];
       
     }
-    // OPEN HERE
-    if( ! [fm fileExistsAtPath:logFileFn] ) {
-      if( ! [fm createFileAtPath:logFileFn contents:nil attributes:nil] ) {
-        SMKThrow(@"creat empty - SUCKS log %@ really!!",logFileFn );
-      }
-    }
-    logFile = [NSFileHandle fileHandleForWritingAtPath:logFileFn];
-    if( logFile == nil ) {
-      // ouch
-      SMKThrow(@"open log %@ really!!",logFileFn);
-    }
-    [logFile seekToEndOfFile];
+    // set fn - opens
+    [self setLogFileFn: lgFn ];
+
   } else {
-    logIsFile = FALSE; // your handle I can't trim
-    logFile = logHandle;
+    [self setLogIsFile: FALSE]; // your handle I can't trim
+    [self setLogFile: logHandle];
   }
-  logLock = [[NSLock alloc] init ];
-  [logLock setName:logFileFn];
+  //logLock = [[NSLock alloc] init ];
   // WOW i think it's finally good to go :)
 }
 
@@ -174,8 +160,8 @@ static NSDateFormatter * dfltLogDateFormater = nil;
 {
   self = [super init];
   if( self ) {
-    logFileFn = @"STDERR";
-    logIsFile = FALSE;
+    self->_logFileFn = @"STDERR";
+    self->_logIsFile = FALSE;
     [self cnfgLogger:[NSFileHandle fileHandleWithStandardError]];
   }
   return self;    
@@ -185,8 +171,8 @@ static NSDateFormatter * dfltLogDateFormater = nil;
 {
   self = [super init];
   if( self ) {
-    logFileFn = @"STDOUT";
-    logIsFile = FALSE;
+    self->_logFileFn = @"STDOUT";
+    self->_logIsFile = FALSE;
     [self cnfgLogger:[NSFileHandle fileHandleWithStandardOutput]];
   }
   return self;        
@@ -196,61 +182,94 @@ static NSDateFormatter * dfltLogDateFormater = nil;
 {
   self = [super init];
   if( self ) {
-    logFileFn = path;
-    [self cnfgLogger:[NSFileHandle fileHandleForWritingAtPath:path]];
+    [[NSUserDefaults standardUserDefaults]
+     setObject: path forKey:[SMKLogger userDefaultLogFile]];
+    [self cnfgLogger: nil];
   }
   return self;    
+}
+-(void)setLogFileFn:(NSString *)fn
+{
+  if( self.logFile != nil ) {
+    [self.logFile closeFile];
+    [self setLogFile: nil ];
+  }
+  [[NSUserDefaults standardUserDefaults]
+   setObject: fn forKey:[SMKLogger userDefaultLogFile]];
+  self->_logFileFn = fn;
+  // OPEN HERE
+  if( ! [self.fm fileExistsAtPath: self.logFileFn] ) {
+    if( ! [self.fm createFileAtPath:self.logFileFn contents:nil attributes:nil] ) {
+      SMKThrow(@"creat empty - SUCKS log %@ really!!",self.logFileFn );
+    }
+  }
+  self->_logFile = [NSFileHandle fileHandleForWritingAtPath: self.logFileFn];
+  if( self.logFile == nil ) {
+    // ouch
+    SMKThrow(@"open log %@ really!!",self.logFileFn);
+  }
+  [self setLogIsFile: TRUE];
+  [self.logFile seekToEndOfFile];
+}
+-(NSString *)logFileFn
+{
+  return self->_logFileFn;
 }
 
 -(void)trimLog
 {
-  [logLock lock];
-  [logFile closeFile];
-  NSString * tmpFn = [NSString stringWithFormat:@"%@.trim",logFileFn];
+  //[logLock lock];
+  [self.logFile closeFile];
+  [self setLogFile: nil ];
+  
+  NSString * tmpFn = [NSString stringWithFormat:@"%@.trim",self.logFileFn];
   NSError * er = nil;
-  [fm moveItemAtPath:logFileFn toPath:tmpFn error:&er];
+  [self.fm moveItemAtPath:self.logFileFn toPath:tmpFn error:&er];
   if( er != nil ) {
-    SMKThrow(@"move %@ to %@",logFileFn, tmpFn);
+    //[logLock unlock];
+    SMKThrow(@"move %@ to %@",self.logFileFn, tmpFn);
   }
   NSFileHandle * oldLog = [NSFileHandle fileHandleForReadingAtPath:tmpFn];
   if( oldLog == nil ) {
+    //[logLock unlock];
     SMKThrow(@"open tmp %@ really!!",tmpFn );
   }
-  NSDictionary * fnAttrs = [fm attributesOfItemAtPath:tmpFn
-                                                error:nil];
-  logFile = [NSFileHandle fileHandleForWritingAtPath:logFileFn];
-  if( logFile == nil ) {
-    SMKThrow( @"open new log %@ really!!",logFileFn);
+  NSDictionary * fnAttrs = [self.fm attributesOfItemAtPath:tmpFn
+                                                     error:nil];
+  if( ! [self.fm createFileAtPath:self.logFileFn contents:nil attributes:nil] ) {
+    SMKThrow(@"create %@ failed :(",self.logFileFn);
+  }
+  NSFileHandle * nFh = [NSFileHandle fileHandleForWritingAtPath:self.logFileFn];
+  
+  if( nFh == nil ) {
+    //[logLock unlock];
+    SMKThrow( @"open new log %@ really!!",self.logFileFn);
   }
   unsigned long long curSize = [fnAttrs fileSize];
   unsigned long long seekPos = 0;
-  if( curSize > maxLogSize ) {
-    // i.e. seek into the file 25% (+ any overage)
-    seekPos = (maxLogSize / 4);
-    seekPos -= curSize - maxLogSize;
-  } else if( curSize > (maxLogSize / 4) ) {
-    // take off 25% as long as the file is big enough
-    seekPos = (maxLogSize / 4);
-  } else {
-    // don't know why trim was called, but o well
-    seekPos = 0;
+  if( curSize > self.maxLogSize ) {
+    seekPos = (curSize / 4);
   }
-  [oldLog seekToFileOffset:seekPos];
+  [oldLog seekToFileOffset: seekPos ];
   
   // We have gobs of memory - FIXME - should do pages, but lazy
-  [logFile writeData:[oldLog readDataToEndOfFile]];
+  [nFh writeData:[oldLog readDataToEndOfFile]];
   [oldLog closeFile];
-  [fm removeItemAtPath:tmpFn error:&er];
-  [logLock unlock];
+  [self.fm removeItemAtPath: tmpFn error:&er];
+  [self setLogFile: nFh];
+  // [logLock unlock];
 }
 
 -(void)mtLogIt:(NSString *)msg
 {
-  [logLock lock];
-  [logFile writeData:[msg dataUsingEncoding:NSUTF8StringEncoding]]; 
-  [logFile writeData:[NSData dataWithBytes:"\n" length:1]];
-  [logFile synchronizeFile];
-  [logLock unlock];
+  // [logLock lock];
+  if( self.logIsFile && [self.logFile offsetInFile] > self.maxLogSize ) {
+    [self trimLog];
+  }
+  [self.logFile writeData:[msg dataUsingEncoding:NSUTF8StringEncoding]]; 
+  [self.logFile writeData:[NSData dataWithBytes:"\n" length:1]];
+  [self.logFile synchronizeFile];
+  // [logLock unlock];
 }
 
 -(void)logIt:(enum SMKLogLevel)lvl
@@ -259,30 +278,27 @@ static NSDateFormatter * dfltLogDateFormater = nil;
          fmt:(NSString *)msgFmt
    arguments:(va_list)args
 {
-  if( lvl < outLogLevel
-     && ( teeLogger == nil
-         || lvl < teeLogger.outLogLevel ) ) {
+  if( lvl < self.outLogLevel
+     && ( self.teeLogger == nil
+         || lvl < self.teeLogger.outLogLevel ) ) {
        return;
      }
   
   // ar we at max size?
-  if( logIsFile && [logFile offsetInFile] > maxLogSize ) {
-    [self trimLog];
-  }
   NSMutableString * logEntry = [[NSMutableString alloc]init];
   
-  if( logDoOutputDate ) {
-    [logEntry appendString:[dateFormater stringFromDate:[NSDate date]]];
+  if( self.logDoOutputDate ) {
+    [logEntry appendString:[self.dateFormater stringFromDate:[NSDate date]]];
     [logEntry appendString:@" "];
   }
   
-  if( logDoOutputLevel ) {
+  if( self.logDoOutputLevel ) {
     [logEntry appendString:
      SMKLogLevelStrings[ lvl <= SMK_LOG_ERROR 
                         ? lvl : SMK_LOG_ERROR ] ];
   }
   
-  if( logDoOutputSrcLine ) {
+  if( self.logDoOutputSrcLine ) {
     NSString * srcFile = [[NSString stringWithUTF8String:func]
                           lastPathComponent];
     
@@ -292,7 +308,7 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   [logEntry appendString:[[NSString alloc]
                           initWithFormat:msgFmt arguments:args]];
   
-  if( lvl >= outLogLevel )  {
+  if( lvl >= self.outLogLevel )  {
     [self mtLogIt:logEntry];
     /*
      if( [NSThread isMainThread] ) {
@@ -305,9 +321,9 @@ static NSDateFormatter * dfltLogDateFormater = nil;
      }
      */
   }
-  if( teeLogger 
-     && lvl >= teeLogger.outLogLevel ) {
-    [teeLogger mtLogIt:logEntry];
+  if( self.teeLogger 
+     && lvl >= self.teeLogger.outLogLevel ) {
+    [self.teeLogger mtLogIt:logEntry];
     /*
      if( [NSThread isMainThread] ) {
      [teeLogger mtLogIt:logEntry];
@@ -370,8 +386,8 @@ static NSDateFormatter * dfltLogDateFormater = nil;
 
 -(void) dealloc
 {
-  if( logFile ) {
-    [logFile closeFile];
+  if( self.logFile ) {
+    [self.logFile closeFile];
   }
 }
 
