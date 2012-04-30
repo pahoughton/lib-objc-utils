@@ -56,9 +56,9 @@
 		DA0DB9811549BDEE00B46107 /* SMKException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SMKException.cpp; sourceTree = "<group>"; };
 		DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSFileHandleStreamBuf.mm; sourceTree = "<group>"; };
 		DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSFileHandleStreamBuf.h; path = SMKCommon/NSFileHandleStreamBuf.h; sourceTree = "<group>"; };
-		DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStlUtils_g.a.11.01.01; path = ../../../../../../Support/lib/libStlUtils_g.a.11.01.01; sourceTree = "<group>"; };
-		DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGnuRegex_s.a.3.01.01; path = ../../../../../../Support/lib/libGnuRegex_s.a.3.01.01; sourceTree = "<group>"; };
-		DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCommon_s.a.4.01.01; path = ../../../../../../Support/lib/libCommon_s.a.4.01.01; sourceTree = "<group>"; };
+		DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */ = {isa = PBXFileReference; name = libStlUtils_g.a.11.01.01; path = /Support/lib/libStlUtils_g.a.11.01.01; sourceTree = "<absolute>"; };
+		DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */ = {isa = PBXFileReference; name = libGnuRegex_s.a.3.01.01; path = /Support/lib/libGnuRegex_s.a.3.01.01; sourceTree = "<absolute>"; };
+		DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */ = {isa = PBXFileReference; name = libCommon_s.a.4.01.01; path = /Support/lib/libCommon_s.a.4.01.01; sourceTree = "<absolute>"; };
 		DA50D1FF154EC60800F1A9C2 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/i686-apple-darwin11/4.2.1/libstdc++.dylib"; sourceTree = SDKROOT; };
 		DAAF1086150E43FC004BBF55 /* SMKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKConfig.h; path = SMKCommon/SMKConfig.h; sourceTree = "<group>"; };
 		DAB7F4B814F51B4500D7339B /* SMKLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogger.h; path = SMKCommon/SMKLogger.h; sourceTree = "<group>"; };
@@ -121,10 +121,6 @@
 		DADEA98A14F515ED00AF5176 = {
 			isa = PBXGroup;
 			children = (
-				DA50D1FF154EC60800F1A9C2 /* libstdc++.dylib */,
-				DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */,
-				DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */,
-				DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */,
 				DADEA9C114F516BC00AF5176 /* Public Headers */,
 				DADEA99E14F515ED00AF5176 /* Sources */,
 				DADEA99F14F515ED00AF5176 /* Supporting Files */,
@@ -146,6 +142,10 @@
 		DADEA99714F515ED00AF5176 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA50D1FF154EC60800F1A9C2 /* libstdc++.dylib */,
+				DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */,
+				DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */,
+				DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */,
 				DAB7F4CB14F524A700D7339B /* Security.framework */,
 				DADEA99D14F515ED00AF5176 /* Foundation.framework */,
 				DADEA9AA14F515EE00AF5176 /* SenTestingKit.framework */,
