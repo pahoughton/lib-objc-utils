@@ -77,6 +77,7 @@ inline std::ostream & operator << ( std::ostream & dest, const SMKException & ob
 #elif defined ( __OBJC__)
 
 @interface SMKException : NSException
++(void)setUncaughtHandler;
 +(void)raise:(NSString *)name
         file: (const char *) fileName
        funct: (const char *) funcName

@@ -48,6 +48,28 @@ static NSDateFormatter * dfltLogDateFormater = nil;
 @synthesize logIsFile            = _logIsFile;
 @synthesize fm                   = _fm;
 //@synthesize logLock;
++(NSString *)setDefaultLogDir:(NSString *)dir
+                   name:(NSString *)name
+                   user:(NSString *)user
+{
+  BOOL isDir = false;
+  NSFileManager * fm = [NSFileManager defaultManager];
+  [fm fileExistsAtPath: dir isDirectory:&isDir];
+  if( ! isDir ) {
+    return [NSString stringWithFormat:
+            @"Log directory '%@' does not exists"
+            ,dir];
+  }
+  
+  NSString * logFn = [NSString stringWithFormat:
+                      @"%@/%@.%@.log"
+                      ,dir
+                      ,name
+                      ,user];
+  
+  [[SMKLogger appLogger] setLogFileFn: logFn];
+  return nil;
+}
 
 -(void)cnfgLogger:(NSFileHandle *)logHandle
 {

@@ -25,7 +25,46 @@
 **/
 #import "SMKException.h"
 #import "SMKLogger.h"
+
+static NSUncaughtExceptionHandler * origExcptHndlr = 0;
+
+static void SMKUncaughtExceptionHandler( NSException * exception );
+
+static void SMKUncaughtExceptionHandler( NSException * exception )
+{
+  NSMutableString * excptDesc = [[NSMutableString alloc]initWithFormat:
+                                 @"Uncaught Exception: %@ - %@\n",
+                                 [exception name],
+                                 [exception reason]];
+  /*
+  NSArray * callStack = [exception callStackSymbols];
+  NSUInteger symCnt = [callStack count];
+  [excptDesc appendFormat:@"Symbols(%lu)\n",symCnt];
+  
+  for( NSString * sym in callStack ) {
+    [excptDesc appendFormat:@"   %@\n",sym];
+  }
+   */
+  SMKLogError(excptDesc);
+  SMKLogExcept( exception );
+  
+  if( origExcptHndlr != nil ) {
+    (*origExcptHndlr)(exception);
+  } else {
+    [NSApp terminate:nil];
+    exit(1);
+  }
+}
+
 @implementation SMKException
++(void)setUncaughtHandler
+{
+  NSUncaughtExceptionHandler * myHndlr = &SMKUncaughtExceptionHandler;
+  
+  origExcptHndlr = NSGetUncaughtExceptionHandler();
+  
+  NSSetUncaughtExceptionHandler(myHndlr); 
+}
 +(void)raise: (NSString *)name
         file: (const char *) fileName
        funct: (const char *) funcName

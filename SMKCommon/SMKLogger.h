@@ -66,6 +66,11 @@ enum SMKLogLevel {
 +(NSString *)userDefaultLogFile;
 +(NSString *)userDefaultMaxLogSize;
 
+// returns nil on success or errmsg
++(NSString *)setDefaultLogDir:(NSString *)dir
+                         name:(NSString *)name
+                         user:(NSString *)user;
+
 -(id)initToStderr;
 -(id)initToStdout;
 -(id)initWithHandle:(NSFileHandle *)handle;
