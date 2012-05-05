@@ -32,7 +32,7 @@ static NSString * SMKLogLevelStrings[] = { @"DBG ",
     @"ERR " };
 
 static SMKLogger * dfltAppLogger = nil;
-static NSUInteger  dfltMaxSize = (50 * 1024); // i.e 50K
+static NSUInteger  dfltMaxSize = (100 * 1024); // i.e 50K
 static NSDateFormatter * dfltLogDateFormater = nil;
 
 @implementation SMKLogger
@@ -101,6 +101,11 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   
   udNumVal = [dfls objectForKey:[SMKLogger userDefaultMaxLogSize]];
   if( udNumVal != nil ) {
+    NSUInteger maxSize = [udNumVal unsignedIntegerValue];
+    if( maxSize < dfltMaxSize ) {
+      udNumVal = [NSNumber numberWithUnsignedInteger: dfltMaxSize];
+      [dfls setObject: udNumVal forKey:[SMKLogger userDefaultMaxLogSize]];
+    }
     [self setMaxLogSize: [udNumVal unsignedIntegerValue] ];
   } else {
     [self setMaxLogSize: dfltMaxSize ];
