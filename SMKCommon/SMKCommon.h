@@ -52,6 +52,8 @@ extern "C" {
 #import "SMKLogger.h"
 #import "Incremental.h"
 #import "SMKLogin.h"
+#import "SMKCleanFilename.h"
+
 #endif
 
 
