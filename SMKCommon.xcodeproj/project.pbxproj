@@ -17,6 +17,8 @@
 		DA5ADEBF155820C700FB1475 /* SMK_CleanFilename.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5ADEBE155820C700FB1475 /* SMK_CleanFilename.m */; };
 		DA5ADEC0155820D600FB1475 /* SMKCleanFilename.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5ADEBC15581FF300FB1475 /* SMKCleanFilename.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA5ADEC6155828F900FB1475 /* SMKCleanFilename.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5ADEC5155828F900FB1475 /* SMKCleanFilename.c */; };
+		DA9B12FC155955BC002695C6 /* SMK_DateFmts.h in Headers */ = {isa = PBXBuildFile; fileRef = DA9B12FA155955BC002695C6 /* SMK_DateFmts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA9B12FD155955BC002695C6 /* SMK_DateFmts.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9B12FB155955BC002695C6 /* SMK_DateFmts.m */; };
 		DAAF1087150E43FC004BBF55 /* SMKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAF1086150E43FC004BBF55 /* SMKConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BE14F51B4500D7339B /* SMKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB7F4B814F51B4500D7339B /* SMKLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAB7F4BF14F51B4500D7339B /* SMKLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB7F4B914F51B4500D7339B /* SMKLogger.m */; };
@@ -66,6 +68,8 @@
 		DA5ADEBC15581FF300FB1475 /* SMKCleanFilename.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SMKCleanFilename.h; path = SMKCommon/SMKCleanFilename.h; sourceTree = "<group>"; };
 		DA5ADEBE155820C700FB1475 /* SMK_CleanFilename.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMK_CleanFilename.m; sourceTree = "<group>"; };
 		DA5ADEC5155828F900FB1475 /* SMKCleanFilename.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMKCleanFilename.c; sourceTree = "<group>"; };
+		DA9B12FA155955BC002695C6 /* SMK_DateFmts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMK_DateFmts.h; path = SMKCommon/SMK_DateFmts.h; sourceTree = "<group>"; };
+		DA9B12FB155955BC002695C6 /* SMK_DateFmts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMK_DateFmts.m; sourceTree = "<group>"; };
 		DAAF1086150E43FC004BBF55 /* SMKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKConfig.h; path = SMKCommon/SMKConfig.h; sourceTree = "<group>"; };
 		DAB7F4B814F51B4500D7339B /* SMKLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKLogger.h; path = SMKCommon/SMKLogger.h; sourceTree = "<group>"; };
 		DAB7F4B914F51B4500D7339B /* SMKLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKLogger.m; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */,
 				DA5ADEBE155820C700FB1475 /* SMK_CleanFilename.m */,
 				DA5ADEC5155828F900FB1475 /* SMKCleanFilename.c */,
+				DA9B12FB155955BC002695C6 /* SMK_DateFmts.m */,
 			);
 			name = Sources;
 			path = SMKCommon;
@@ -223,6 +228,7 @@
 				DAB7F4B814F51B4500D7339B /* SMKLogger.h */,
 				DAB7F4BA14F51B4500D7339B /* SMKLogin.h */,
 				DA5ADEBC15581FF300FB1475 /* SMKCleanFilename.h */,
+				DA9B12FA155955BC002695C6 /* SMK_DateFmts.h */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				DAF37C2F1548B40900D3C817 /* StlUtilsLogTie.h in Headers */,
 				DA0DB9891549D33700B46107 /* NSFileHandleStreamBuf.h in Headers */,
 				DA5ADEC0155820D600FB1475 /* SMKCleanFilename.h in Headers */,
+				DA9B12FC155955BC002695C6 /* SMK_DateFmts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +367,7 @@
 				DA0DB9881549D33700B46107 /* NSFileHandleStreamBuf.mm in Sources */,
 				DA5ADEBF155820C700FB1475 /* SMK_CleanFilename.m in Sources */,
 				DA5ADEC6155828F900FB1475 /* SMKCleanFilename.c in Sources */,
+				DA9B12FD155955BC002695C6 /* SMK_DateFmts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
