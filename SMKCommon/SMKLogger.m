@@ -283,7 +283,7 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   [nFh writeData:[oldLog readDataToEndOfFile]];
   [oldLog closeFile];
   [self.fm removeItemAtPath: tmpFn error:&er];
-  [self setLogFile: nFh];
+  [self setLogFile:nFh];
   // [logLock unlock];
 }
 
@@ -336,7 +336,10 @@ static NSDateFormatter * dfltLogDateFormater = nil;
                           initWithFormat:msgFmt arguments:args]];
   
   if( lvl >= self.outLogLevel )  {
-    [self mtLogIt:logEntry];
+    [self performSelectorOnMainThread: @selector(mtLogIt:)
+                           withObject: logEntry
+                        waitUntilDone: NO];
+    // [self mtLogIt:logEntry];
     /*
      if( [NSThread isMainThread] ) {
      [self mtLogIt:logEntry];
@@ -350,7 +353,10 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   }
   if( self.teeLogger 
      && lvl >= self.teeLogger.outLogLevel ) {
-    [self.teeLogger mtLogIt:logEntry];
+    [self.teeLogger performSelectorOnMainThread: @selector(mtLogIt:)
+                                     withObject: logEntry
+                                  waitUntilDone: FALSE];
+    //[self.teeLogger mtLogIt:logEntry];
     /*
      if( [NSThread isMainThread] ) {
      [teeLogger mtLogIt:logEntry];
