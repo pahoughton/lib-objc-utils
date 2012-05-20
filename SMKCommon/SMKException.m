@@ -45,8 +45,10 @@ static void SMKUncaughtExceptionHandler( NSException * exception )
     [excptDesc appendFormat:@"   %@\n",sym];
   }
    */
-  SMKLogError(excptDesc);
-  SMKLogExcept( exception );
+  if( ! [exception.name isEqualToString:@"SMKLogger"] ) {
+    SMKLogError(excptDesc);
+    SMKLogExcept( exception );
+  }
   
   if( origExcptHndlr != nil ) {
     (*origExcptHndlr)(exception);

@@ -26,6 +26,9 @@
 #import "SMKException.h"
 #import "StlUtilsLogTie.h"
 
+#define LOGThrow( _fmt_, ... )  [NSException raise:@"SMKLogger" format:_fmt_,##__VA_ARGS__ ]
+
+
 static NSString * SMKLogLevelStrings[] = { @"DBG ",
     @"INF ",
     @"WRN ",
@@ -52,6 +55,7 @@ static NSDateFormatter * dfltLogDateFormater = nil;
                    name:(NSString *)name
                    user:(NSString *)user
 {
+  
   BOOL isDir = false;
   NSFileManager * fm = [NSFileManager defaultManager];
   [fm fileExistsAtPath: dir isDirectory:&isDir];
@@ -227,13 +231,13 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   // OPEN HERE
   if( ! [self.fm fileExistsAtPath: self.logFileFn] ) {
     if( ! [self.fm createFileAtPath:self.logFileFn contents:nil attributes:nil] ) {
-      SMKThrow(@"creat empty - SUCKS log %@ really!!",self.logFileFn );
+      LOGThrow(@"creat empty - SUCKS log %@ really!!",self.logFileFn );
     }
   }
   self->_logFile = [NSFileHandle fileHandleForWritingAtPath: self.logFileFn];
   if( self.logFile == nil ) {
     // ouch
-    SMKThrow(@"open log %@ really!!",self.logFileFn);
+    LOGThrow(@"open log %@ really!!",self.logFileFn);
   }
   [self setLogIsFile: TRUE];
   [self.logFile seekToEndOfFile];
@@ -254,23 +258,23 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   [self.fm moveItemAtPath:self.logFileFn toPath:tmpFn error:&er];
   if( er != nil ) {
     //[logLock unlock];
-    SMKThrow(@"move %@ to %@",self.logFileFn, tmpFn);
+    LOGThrow(@"move %@ to %@",self.logFileFn, tmpFn);
   }
   NSFileHandle * oldLog = [NSFileHandle fileHandleForReadingAtPath:tmpFn];
   if( oldLog == nil ) {
     //[logLock unlock];
-    SMKThrow(@"open tmp %@ really!!",tmpFn );
+    LOGThrow(@"open tmp %@ really!!",tmpFn );
   }
   NSDictionary * fnAttrs = [self.fm attributesOfItemAtPath:tmpFn
                                                      error:nil];
   if( ! [self.fm createFileAtPath:self.logFileFn contents:nil attributes:nil] ) {
-    SMKThrow(@"create %@ failed :(",self.logFileFn);
+    LOGThrow(@"create %@ failed :(",self.logFileFn);
   }
   NSFileHandle * nFh = [NSFileHandle fileHandleForWritingAtPath:self.logFileFn];
   
   if( nFh == nil ) {
     //[logLock unlock];
-    SMKThrow( @"open new log %@ really!!",self.logFileFn);
+    LOGThrow( @"open new log %@ really!!",self.logFileFn);
   }
   unsigned long long curSize = [fnAttrs fileSize];
   unsigned long long seekPos = 0;
