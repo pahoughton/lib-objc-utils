@@ -231,7 +231,7 @@ static NSDateFormatter * dfltLogDateFormater = nil;
   // OPEN HERE
   if( ! [self.fm fileExistsAtPath: self.logFileFn] ) {
     if( ! [self.fm createFileAtPath:self.logFileFn contents:nil attributes:nil] ) {
-      LOGThrow(@"creat empty - SUCKS log %@ really!!",self.logFileFn );
+      LOGThrow(@"Can't creat empty log %@",self.logFileFn );
     }
   }
   self->_logFile = [NSFileHandle fileHandleForWritingAtPath: self.logFileFn];
