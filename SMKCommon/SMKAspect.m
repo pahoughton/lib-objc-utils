@@ -23,8 +23,8 @@
   $Id$
 
 **/
-#import <SMKObjcCommon.h>
 #import "SMKCommon.h"
+#import "SMK_Aspect.h"
 
 NSString * SMKVideoAspect( float vidWidth, float vidHeight )
 {

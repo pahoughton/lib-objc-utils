@@ -26,28 +26,14 @@
 
 **/
 
-#define SMK_CLEANFN_CHARS "/\\?*:;[]"
-#define SMK_CLEANFN_REGEX "[/\\\\?*:;\\[\\]]"
 
-#if defined( __OBJC__ )
 #import <Foundation/Foundation.h>
+#include "SMK_CleanFilename.h"
 
 NSString *
-SMK_CleanFilename( NSString *fn );
+SMKCleanFilename( NSString *fn );
 
 void
-SMK_CleanMutableFilename( NSMutableString * fn );
-
-#endif
-#if defined( __cplusplus )
-extern "C" {
-#endif
-
-  char * SMKCleanFilename( char * name );
-  
-#if defined( __cplusplus )
-};
-#endif
-
+SMKCleanMutableFilename( NSMutableString * fn );
 
 #endif /* ! def SMKCommon_SMKCleanFilename_h */

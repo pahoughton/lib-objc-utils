@@ -1,7 +1,7 @@
-#ifndef SMKCommon_SMK_Common_h
-#define SMKCommon_SMK_Common_h
+#ifndef SMKCommon_SMK_CleanFilename_h
+#define SMKCommon_SMK_CleanFilename_h
 /**
-  File:		SMK_Common.h
+  File:		SMK_CleanFilename.h
   Project:	SMKCommon
   Desc:
 
@@ -25,13 +25,20 @@
   $Id$
 
 **/
-#include <SMK_Exception.h>
+
+#define SMK_CLEANFN_CHARS "/\\?*:;[]"
+#define SMK_CLEANFN_REGEX "[/\\\\?*:;\\[\\]]"
 
 #if defined( __cplusplus )
 extern "C" {
 #endif
+
+  char *
+  SMK_CleanFilename( char * fn );
+
 #if defined( __cplusplus )
 };
 #endif
 
-#endif /* ! def SMKCommon_SMK_Common_h */
+
+#endif /* ! def SMKCommon_SMK_CleanFilename_h */

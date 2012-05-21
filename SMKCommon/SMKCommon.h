@@ -25,36 +25,24 @@
   $Id$
 
 **/
-#include "SMKConfig.h"
-#include "SMKException.h"
+#ifndef __OBJC__
+// #error "Use SMK_Common.h for non Obj-C"
+#endif /* ! defined( __OBJC__ ) */
 
-typedef enum SMKImgAspect_enum {
-    SMK_ASPECT_4_3,  /* 4:3 */
-    SMK_ASPECT_16_9, /* 16:9 */
-    SMK_ASPECT_1_85, /* 1.85:1 */
-    SMK_ASPECT_2_40, /* 2.40:1 */
-    SMK_ASPECT_UNKNOWN
-} SMKImgAspect;
+#import <SMKLogger.h>
+#import <Incremental.h>
+#import <SMKLogin.h>
+#import <SMKCleanFilename.h>
+#import <SMKDateFmts.h>
+#import <SMKException.h>
 
+NSString *
+SMKVideoAspect( float vidWidth, float vidHeight );
 
-#if defined( __cplusplus )
-extern "C" {
-#endif
-    SMKImgAspect SMKAspect( float w, float h );
-    const char * SMKAspectString( SMKImgAspect asp );
-    
-#if defined( __cplusplus )
-};
-#endif
+NSString *
+SMKShortByteSize( NSUInteger val );
 
-
-#if defined (__OBJC__)
-#import "SMKLogger.h"
-#import "Incremental.h"
-#import "SMKLogin.h"
-#import "SMKCleanFilename.h"
-#import "SMK_DateFmts.h"
-#endif
-
+NSArray *
+SMKSplitAmpCommaString( NSString * str );
 
 #endif /* ! def SMKCommon_SMKcCommon_h_ */

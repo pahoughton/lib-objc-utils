@@ -24,7 +24,8 @@
  
  **/
 
-#include "SMKCommon.h"
+#include "SMK_Common.h"
+#include "SMK_Aspect.h"
 
 static const char * SMKAspectStrings[] = {
     "4:3",
