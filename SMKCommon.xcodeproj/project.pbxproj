@@ -65,6 +65,7 @@
 		DA0DB9861549D33600B46107 /* NSFileHandleStreamBuf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSFileHandleStreamBuf.mm; sourceTree = "<group>"; };
 		DA0DB9871549D33700B46107 /* NSFileHandleStreamBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSFileHandleStreamBuf.h; path = SMKCommon/NSFileHandleStreamBuf.h; sourceTree = "<group>"; };
 		DA1FD56717FFA4A80016F6E1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		DA1FD56817FFAE490016F6E1 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		DA50D1F8154EC5E100F1A9C2 /* libStlUtils_g.a.11.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libStlUtils_g.a.11.01.01; path = /Support/lib/libStlUtils_g.a.11.01.01; sourceTree = "<absolute>"; };
 		DA50D1FB154EC5F300F1A9C2 /* libGnuRegex_s.a.3.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGnuRegex_s.a.3.01.01; path = /Support/lib/libGnuRegex_s.a.3.01.01; sourceTree = "<absolute>"; };
 		DA50D1FD154EC60000F1A9C2 /* libCommon_s.a.4.01.01 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCommon_s.a.4.01.01; path = /Support/lib/libCommon_s.a.4.01.01; sourceTree = "<absolute>"; };
@@ -197,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1FD56717FFA4A80016F6E1 /* README.md */,
+				DA1FD56817FFAE490016F6E1 /* .travis.yml */,
 				DADEA9A014F515ED00AF5176 /* SMKCommon-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -441,7 +443,7 @@
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Support/include",
 					/Support/include,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Support/include /Support/include";
@@ -468,7 +470,7 @@
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Support/include",
 					/Support/include,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Support/include /Support/include";
 			};
@@ -477,26 +479,28 @@
 		DADEA9BC14F515EE00AF5176 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
 				INSTALL_PATH = /Support/lib;
 				PRIVATE_HEADERS_FOLDER_PATH = /Support/include;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /Support/include;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		DADEA9BD14F515EE00AF5176 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMKCommon/SMKCommon-Prefix.pch";
 				INSTALL_PATH = /Support/lib;
 				PRIVATE_HEADERS_FOLDER_PATH = /Support/include;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /Support/include;
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -513,7 +517,7 @@
 					"\"$(SDKROOT)/usr/lib/i686-apple-darwin11/4.2.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -531,7 +535,7 @@
 					"\"$(SDKROOT)/usr/lib/i686-apple-darwin11/4.2.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
