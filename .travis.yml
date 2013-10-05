@@ -1,4 +1,6 @@
 language: objective-c
+
+scheme: SMKCommon
 notifications:
   email:
     - paul4hough@gmail.com
@@ -8,4 +10,5 @@ before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - env
   - uname -a
+  - cat /Users/travis/travis-utils/osx-cibuild.sh
 
